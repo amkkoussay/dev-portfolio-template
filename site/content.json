@@ -1,163 +1,27 @@
 {
- "owner": "alexrivera",
- "fetchedAt": "2026-11-26T15:44:58.162Z",
+ "owner": "amkkoussay",
+ "fetchedAt": "2026-11-26T20:28:52.073Z",
  "about": {
-  "repo": "alexrivera",
+  "repo": "amkkoussay",
   "lines": [
-   "# Alex Rivera",
+   "# Koussay Mehdouani",
    "",
-   "Systems and full-stack engineer building developer tools, distributed storage engines, and open-source software.",
+   "High-school student and open-source contributor from Tunisia. I build applied-AI tools for health, agriculture and flood risk, and I contribute fixes to the projects I learn from — pandas, Wireshark, curl and GitLab.",
    "",
-   "San Francisco · Open Source",
+   "Tunisia · Open Source · Sciences de l'informatique",
    "",
-   "[GitHub](https://github.com/alexrivera)",
-   "[LinkedIn](https://www.linkedin.com/in/alexrivera)",
-   "[X / Twitter](https://x.com/alexrivera)",
-   "[Blog](https://alexrivera.dev/blog)"
+   "[GitHub](https://github.com/amkkoussay)",
+   "[LinkedIn](https://www.linkedin.com/in/koussay-mehdouani-45560a389)",
+   "[Blog](https://dev.to/koussay_mehdouani_0edec78)",
+   "[ORCID](https://orcid.org/0009-0003-5825-3692)"
   ]
  },
  "projects": [
   {
-   "repo": "pulsedb",
-   "url": "https://github.com/alexrivera/pulsedb",
-   "description": "An embedded time-series storage engine written in Rust with sub-millisecond range queries and vectorized compression.",
-   "tag": "Database · Rust",
-   "stars": null,
-   "language": "Rust",
-   "pushed": null,
-   "forks": null,
-   "watchers": null,
-   "issues": null,
-   "license": null,
-   "created": null,
-   "branch": "main",
-   "commits": null,
-   "files": null,
-   "counts": {},
-   "github": "https://github.com/alexrivera/pulsedb",
-   "stack": [
-    "Rust",
-    "SQLite",
-    "WebAssembly",
-    "TypeScript"
-   ],
-   "images": [
-    {
-     "file": "shots/project-1.svg",
-     "source": "shots/project-1.svg",
-     "alt": "PulseDB screenshot 1",
-     "xray": false
-    }
-   ],
-   "lines": [
-    "# PulseDB",
-    "",
-    "\u0001IMG0\u0001",
-    "",
-    "### An embedded time-series storage engine written in Rust with sub-millisecond range queries and vectorized compression.",
-    "",
-    "PulseDB is a lightweight embedded time-series database designed for edge",
-    "telemetry and local developer metrics. It features gorilla-style delta",
-    "encoding, memory-mapped segment files, and a zero-allocation query iterator.",
-    "",
-    "Built with Rust · SQLite · WebAssembly · TypeScript",
-    "",
-    "[Visit](https://github.com/alexrivera/pulsedb)"
-   ]
-  },
-  {
-   "repo": "termflow",
-   "url": "https://github.com/alexrivera/termflow",
-   "description": "A fast terminal multiplexer and task runner with live dependency graphs and structured log filtering.",
-   "tag": "CLI · Go",
-   "stars": null,
-   "language": "Go",
-   "pushed": null,
-   "forks": null,
-   "watchers": null,
-   "issues": null,
-   "license": null,
-   "created": null,
-   "branch": "main",
-   "commits": null,
-   "files": null,
-   "counts": {},
-   "github": "https://github.com/alexrivera/termflow",
-   "stack": [
-    "Go",
-    "Terminal",
-    "Docker",
-    "Linux"
-   ],
-   "images": [
-    {
-     "file": "shots/project-2.svg",
-     "source": "shots/project-2.svg",
-     "alt": "TermFlow screenshot 1",
-     "xray": false
-    }
-   ],
-   "lines": [
-    "# TermFlow",
-    "",
-    "\u0001IMG0\u0001",
-    "",
-    "### A fast terminal multiplexer and task runner with live dependency graphs and structured log filtering.",
-    "",
-    "TermFlow orchestrates local microservices and build pipelines from a single",
-    "declarative manifest. It streams colorized output, detects port conflicts",
-    "automatically, and exports execution timelines.",
-    "",
-    "Built with Go · Terminal · Docker · Linux",
-    "",
-    "[Visit](https://github.com/alexrivera/termflow)"
-   ]
-  },
-  {
-   "repo": "tracekit",
-   "url": "https://github.com/alexrivera/tracekit",
-   "description": "Zero-overhead OpenTelemetry trace viewer that runs entirely in the browser from JSONL trace dumps.",
-   "tag": "Observability · TypeScript",
-   "stars": null,
-   "language": "TypeScript",
-   "pushed": null,
-   "forks": null,
-   "watchers": null,
-   "issues": null,
-   "license": null,
-   "created": null,
-   "branch": "main",
-   "commits": null,
-   "files": null,
-   "counts": {},
-   "github": "https://github.com/alexrivera/tracekit",
-   "stack": [
-    "TypeScript",
-    "React",
-    "Canvas",
-    "OpenTelemetry"
-   ],
-   "images": [],
-   "lines": [
-    "# TraceKit",
-    "",
-    "",
-    "### Zero-overhead OpenTelemetry trace viewer that runs entirely in the browser from JSONL trace dumps.",
-    "",
-    "TraceKit lets engineers inspect distributed traces locally without spinning",
-    "up heavy observability backends. Drop a trace file into the browser and",
-    "inspect flamegraphs, critical paths, and span attributes.",
-    "",
-    "Built with TypeScript · React · Canvas · OpenTelemetry",
-    "",
-    "[Visit](https://github.com/alexrivera/tracekit)"
-   ]
-  },
-  {
-   "repo": "schemasync",
-   "url": "https://github.com/alexrivera/schemasync",
-   "description": "Automated database migration validator that catches breaking schema changes and missing indexes in CI.",
-   "tag": "Tooling · Python",
+   "repo": "mirsad",
+   "url": "https://github.com/amkkoussay/Mersad",
+   "description": "Shared memory for AI agents: bi-temporal facts, first-class decision units, and conflicts that stay pending until the owner rules.",
+   "tag": "AI Agents · MCP · Python",
    "stars": null,
    "language": "Python",
    "pushed": null,
@@ -170,35 +34,38 @@
    "commits": null,
    "files": null,
    "counts": {},
-   "github": "https://github.com/alexrivera/schemasync",
+   "github": "https://github.com/amkkoussay/Mersad",
    "stack": [
     "Python",
-    "PostgreSQL",
-    "GitHub Actions"
+    "MCP",
+    "SQLite",
+    "Cloudflare Workers"
    ],
    "images": [],
    "lines": [
-    "# SchemaSync",
+    "# Mirsad",
     "",
     "",
-    "### Automated database migration validator that catches breaking schema changes and missing indexes in CI.",
+    "### Shared memory for AI agents: bi-temporal facts, first-class decision units, and conflicts that stay pending until the owner rules.",
     "",
-    "SchemaSync parses SQL and ORM migrations in pull requests, simulates lock",
-    "contention against production table statistics, and posts actionable safety",
-    "reports.",
+    "Mirsad gives AI agents a shared, living memory. Facts are stored",
+    "bi-temporally in SQLite with episodes as provenance, and disagreements",
+    "between agents become Decision units — the system never judges; the owner",
+    "has the final word. It ships as the mirsad-mcp package on PyPI and runs live",
+    "on Cloudflare Workers + D1, with Claude and ChatGPT connected.",
     "",
-    "Built with Python · PostgreSQL · GitHub Actions",
+    "Built with Python · MCP · SQLite · Cloudflare Workers",
     "",
-    "[Visit](https://github.com/alexrivera/schemasync)"
+    "[Visit](https://github.com/amkkoussay/Mersad)"
    ]
   },
   {
-   "repo": "minikv",
-   "url": "https://github.com/alexrivera/minikv",
-   "description": "A minimal Raft-backed key-value store built to explore consensus algorithms and deterministic simulation testing.",
-   "tag": "Storage · C",
+   "repo": "clinique",
+   "url": "https://clinique-six.vercel.app",
+   "description": "Clinic management platform with a role-aware AI assistant, an integration API, and automated appointment emails.",
+   "tag": "Health Informatics · Flask",
    "stars": null,
-   "language": "C",
+   "language": "Flask",
    "pushed": null,
    "forks": null,
    "watchers": null,
@@ -209,34 +76,38 @@
    "commits": null,
    "files": null,
    "counts": {},
-   "github": "https://github.com/alexrivera/minikv",
+   "github": "https://github.com/amkkoussay/clinique",
    "stack": [
-    "C",
-    "Networking",
-    "Raft"
+    "Flask",
+    "SQLite",
+    "FHIR",
+    "n8n"
    ],
    "images": [],
    "lines": [
-    "# MiniKV",
+    "# Clinique",
     "",
     "",
-    "### A minimal Raft-backed key-value store built to explore consensus algorithms and deterministic simulation testing.",
+    "### Clinic management platform with a role-aware AI assistant, an integration API, and automated appointment emails.",
     "",
-    "MiniKV implements leader election, log replication, and snapshot compaction",
-    "in under 2,000 lines of C with a deterministic network simulator.",
+    "A Flask clinic platform with role-based access for patients, doctors and",
+    "reception. A Qwen-powered chat assistant uses role-aware tools, an",
+    "integration blueprint exposes booking events, and an n8n workflow turns them",
+    "into confirmation and cancellation emails — verified end-to-end with real",
+    "deliveries.",
     "",
-    "Built with C · Networking · Raft",
+    "Built with Flask · SQLite · FHIR · n8n",
     "",
-    "[Visit](https://github.com/alexrivera/minikv)"
+    "[Visit](https://clinique-six.vercel.app)"
    ]
   },
   {
-   "repo": "dotfiles",
-   "url": "https://github.com/alexrivera/dotfiles",
-   "description": "Modular Neovim, Fish shell, and tmux configuration tuned for fast keyboard-driven development.",
-   "tag": "Config · Neovim",
+   "repo": "rain2risk",
+   "url": "https://rain2risk.vercel.app",
+   "description": "Relative flood-risk screening with a transparent weighted model — built for screening, not prediction.",
+   "tag": "GeoAI · Climate Risk",
    "stars": null,
-   "language": "Lua",
+   "language": "Python",
    "pushed": null,
    "forks": null,
    "watchers": null,
@@ -247,25 +118,182 @@
    "commits": null,
    "files": null,
    "counts": {},
-   "github": "https://github.com/alexrivera/dotfiles",
+   "github": "https://github.com/amkkoussay/rain2risk",
    "stack": [
-    "Lua",
-    "Neovim",
-    "Shell"
+    "Python",
+    "Geospatial",
+    "Vercel"
    ],
    "images": [],
    "lines": [
-    "# Dotfiles",
+    "# rain2risk",
     "",
     "",
-    "### Modular Neovim, Fish shell, and tmux configuration tuned for fast keyboard-driven development.",
+    "### Relative flood-risk screening with a transparent weighted model — built for screening, not prediction.",
     "",
-    "Cross-platform terminal environment with custom Lua plugins, minimal LSP",
-    "setup, and synchronized color palettes.",
+    "rain2risk turns rainfall and terrain signals into a relative flood-risk",
+    "picture using a published weighted model (40/20/15/15/10). The methodology",
+    "is stated openly in the README, including what the tool does not claim: it",
+    "screens relative risk, it does not predict floods.",
     "",
-    "Built with Lua · Neovim · Shell",
+    "Built with Python · Geospatial · Vercel",
     "",
-    "[Visit](https://github.com/alexrivera/dotfiles)"
+    "[Visit](https://rain2risk.vercel.app)"
+   ]
+  },
+  {
+   "repo": "cropguide",
+   "url": "https://github.com/amkkoussay/cropguide-ai",
+   "description": "Plant-disease guidance backed by a source-verified knowledge base: 18 crops, 184 verified disease records.",
+   "tag": "AgriTech · AI",
+   "stars": null,
+   "language": "JavaScript",
+   "pushed": null,
+   "forks": null,
+   "watchers": null,
+   "issues": null,
+   "license": null,
+   "created": null,
+   "branch": "main",
+   "commits": null,
+   "files": null,
+   "counts": {},
+   "github": "https://github.com/amkkoussay/cropguide-ai",
+   "stack": [
+    "JavaScript",
+    "SQLite",
+    "Computer Vision"
+   ],
+   "images": [],
+   "lines": [
+    "# CropGuide",
+    "",
+    "",
+    "### Plant-disease guidance backed by a source-verified knowledge base: 18 crops, 184 verified disease records.",
+    "",
+    "CropGuide identifies possible plant diseases from a photo. Its knowledge",
+    "base was rebuilt from real, source-backed records only — templated or",
+    "generated records were rejected. Every one of the 184 records across 18",
+    "crops is traceable to its source.",
+    "",
+    "Built with JavaScript · SQLite · Computer Vision",
+    "",
+    "[Visit](https://github.com/amkkoussay/cropguide-ai)"
+   ]
+  },
+  {
+   "repo": "ai-health-assistant",
+   "url": "https://github.com/amkkoussay/ai-health-assistant",
+   "description": "Full-stack health informatics and symptom-analysis application. Exploratory project.",
+   "tag": "Health Informatics · Exploratory",
+   "stars": null,
+   "language": "JavaScript",
+   "pushed": null,
+   "forks": null,
+   "watchers": null,
+   "issues": null,
+   "license": null,
+   "created": null,
+   "branch": "main",
+   "commits": null,
+   "files": null,
+   "counts": {},
+   "github": "https://github.com/amkkoussay/ai-health-assistant",
+   "stack": [
+    "JavaScript",
+    "Full-stack"
+   ],
+   "images": [],
+   "lines": [
+    "# AI Health Assistant",
+    "",
+    "",
+    "### Full-stack health informatics and symptom-analysis application. Exploratory project.",
+    "",
+    "An exploratory full-stack health assistant: symptom analysis and health-data",
+    "handling, built to learn how clinical information should (and should not)",
+    "flow through an AI interface. Labelled exploratory — a proof of concept, not",
+    "a medical tool.",
+    "",
+    "Built with JavaScript · Full-stack",
+    "",
+    "[Visit](https://github.com/amkkoussay/ai-health-assistant)"
+   ]
+  },
+  {
+   "repo": "mapping-equity-geoai",
+   "url": "https://github.com/amkkoussay/mapping-equity-geoai",
+   "description": "Geospatial exploration of how services and risk are distributed across places. Exploratory project.",
+   "tag": "GeoAI · Exploratory",
+   "stars": null,
+   "language": "Python",
+   "pushed": null,
+   "forks": null,
+   "watchers": null,
+   "issues": null,
+   "license": null,
+   "created": null,
+   "branch": "main",
+   "commits": null,
+   "files": null,
+   "counts": {},
+   "github": "https://github.com/amkkoussay/mapping-equity-geoai",
+   "stack": [
+    "Python",
+    "Geospatial"
+   ],
+   "images": [],
+   "lines": [
+    "# Mapping Equity GeoAI",
+    "",
+    "",
+    "### Geospatial exploration of how services and risk are distributed across places. Exploratory project.",
+    "",
+    "An exploratory GeoAI project mapping how access and risk are distributed",
+    "geographically — part of an ongoing exploration of spatial data for",
+    "public-good questions.",
+    "",
+    "Built with Python · Geospatial",
+    "",
+    "[Visit](https://github.com/amkkoussay/mapping-equity-geoai)"
+   ]
+  },
+  {
+   "repo": "pann",
+   "url": "https://github.com/amkkoussay/Pann",
+   "description": "A modular Flask application with a layered database and service architecture. Proof of concept.",
+   "tag": "Flask · Experiment",
+   "stars": null,
+   "language": "Python",
+   "pushed": null,
+   "forks": null,
+   "watchers": null,
+   "issues": null,
+   "license": null,
+   "created": null,
+   "branch": "main",
+   "commits": null,
+   "files": null,
+   "counts": {},
+   "github": "https://github.com/amkkoussay/Pann",
+   "stack": [
+    "Python",
+    "Flask"
+   ],
+   "images": [],
+   "lines": [
+    "# Pann",
+    "",
+    "",
+    "### A modular Flask application with a layered database and service architecture. Proof of concept.",
+    "",
+    "A proof-of-concept Flask application exploring modular architecture:",
+    "separated database and service layers, built as a learning exercise in",
+    "structuring a Python web app.",
+    "",
+    "Built with Python · Flask",
+    "",
+    "[Visit](https://github.com/amkkoussay/Pann)"
    ]
   }
  ],
@@ -604,83 +632,63 @@
  },
  "work": [
   {
-   "when": "06/2024 – present",
-   "title": "Senior Systems Engineer",
-   "org": "CloudScale",
-   "where": "San Francisco · Hybrid",
-   "desc": "Leading the distributed query execution engine and low-latency telemetry pipeline in Rust and Go.",
-   "url": "https://example.com/cloudscale"
+   "desc": "Merged pull requests in pandas and GitLab's gitlab-shell, a merged change in Wireshark (my name is in the official AUTHORS file), and fixes under review in curl and xarray. Every fix starts with a reproduction and ships with tests.",
+   "org": "pandas · Wireshark · GitLab · curl",
+   "title": "Open Source Contributor",
+   "url": "https://github.com/amkkoussay",
+   "when": "11/2026 – present",
+   "where": "Remote"
   },
   {
-   "when": "03/2022 – 05/2024",
-   "title": "Software Engineer",
-   "org": "DevFlow",
-   "where": "Remote",
-   "desc": "Built CLI developer tooling, local sandbox runtimes, and real-time build log streaming for 50k+ engineers.",
-   "url": "https://example.com/devflow"
+   "desc": "Built Mirsad, a shared memory hub for AI agents — an MCP server published on PyPI and running live on Cloudflare Workers + D1: bi-temporal facts, first-class decisions, and conflicts only the owner can resolve.",
+   "org": "Mirsad",
+   "title": "Creator",
+   "url": "https://github.com/amkkoussay/Mersad",
+   "when": "11/2026 – present",
+   "where": "Open source"
   },
   {
-   "when": "01/2021 – present",
-   "title": "Core Maintainer",
-   "org": "OpenTrace",
-   "where": "Open source",
-   "desc": "Maintaining open-source distributed tracing SDKs and terminal visualization tools.",
-   "url": "https://github.com/alexrivera"
+   "desc": "Published a narrative review on the robustness of AI clinical decision-support systems under unreliable patient data, proposing the CARE framework for when a system should abstain instead of deciding.",
+   "org": "Zenodo",
+   "title": "Independent Researcher",
+   "url": "https://doi.org/10.5281/zenodo.22883408",
+   "when": "09/2026",
+   "where": "Tunisia"
   },
   {
-   "when": "05/2020 – 08/2020",
-   "title": "Open Source Fellow",
-   "org": "SystemsLab",
-   "where": "Remote",
-   "desc": "Implemented zero-copy serialization primitives and benchmarked memory-mapped storage formats."
+   "desc": "Final-year computer-science track in high school (baccalaureate cycle 2027–2028), building applied-AI projects for health, agriculture and climate risk alongside school.",
+   "org": "Sciences de l'informatique",
+   "title": "Student",
+   "when": "2026 – present",
+   "where": "Tunisia"
   }
  ],
- "talks": [
-  {
-   "name": "Systems Conf",
-   "place": "San Francisco, USA",
-   "when": "Oct 2025",
-   "lat": 37.77,
-   "lon": -122.41,
-   "desc": "Building deterministic simulation harnesses for storage engines — catching race conditions before production.",
-   "url": "https://example.com/talk-1",
-   "photos": []
-  },
-  {
-   "name": "Open Source Summit",
-   "place": "London, UK",
-   "when": "May 2024",
-   "lat": 51.51,
-   "lon": -0.13,
-   "desc": "Designing zero-dependency developer tools that run fast on every platform.",
-   "url": "https://example.com/talk-2",
-   "photos": []
-  }
- ],
+ "talks": [],
  "links": [
   {
    "label": "Email",
-   "url": "mailto:hello@alexrivera.dev"
+   "url": "mailto:koussaymehdouani@gmail.com"
   },
   {
    "label": "GitHub",
-   "url": "https://github.com/alexrivera"
+   "url": "https://github.com/amkkoussay"
   },
   {
    "label": "LinkedIn",
-   "url": "https://www.linkedin.com/in/alexrivera"
-  },
-  {
-   "label": "X / Twitter",
-   "url": "https://x.com/alexrivera"
+   "url": "https://www.linkedin.com/in/koussay-mehdouani-45560a389"
   },
   {
    "label": "Blog",
-   "url": "https://alexrivera.dev/blog"
+   "url": "https://dev.to/koussay_mehdouani_0edec78"
+  },
+  {
+   "label": "ORCID",
+   "url": "https://orcid.org/0009-0003-5825-3692"
   }
  ],
  "more": [
-  "minikv",
-  "dotfiles"
+  "ai-health-assistant",
+  "mapping-equity-geoai",
+  "pann"
  ]
 }
