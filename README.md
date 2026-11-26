@@ -4,23 +4,8 @@ A Neovim-inspired developer portfolio template with an animated code-wall intro,
 
 Zero build step required — pure HTML, CSS, and ES modules.
 
-> **Enhanced edition** maintained by [Koussay Mehdouani](https://github.com/amkkoussay), based on the original template by [Pavan Joshi](https://github.com/pavanjoshi914/dev-portfolio-template) (MIT). See [CHANGELOG.md](./CHANGELOG.md) for what this edition adds.
+> **Original template** maintained by [Koussay Mehdouani](https://github.com/amkkoussay)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/pavanjoshi914/dev-portfolio-template/main/assets/demo.gif" alt="Portfolio Demo Reel" width="340" />
-</p>
-
-<p align="center">
-  <a href="https://github.com/pavanjoshi914/dev-portfolio-template/blob/main/assets/demo.mp4">Watch full HD video (upstream repo)</a>
-</p>
-
-| Intro & Code Wall | Interactive Editor |
-| :---: | :---: |
-| <img src="https://raw.githubusercontent.com/pavanjoshi914/dev-portfolio-template/main/assets/preview-1.png" alt="Intro & Code Wall" width="420" /> | <img src="https://raw.githubusercontent.com/pavanjoshi914/dev-portfolio-template/main/assets/preview-2.png" alt="Interactive Editor" width="420" /> |
-| **Projects & Stack** | **Themes & Terminal** |
-| <img src="https://raw.githubusercontent.com/pavanjoshi914/dev-portfolio-template/main/assets/preview-3.png" alt="Projects & Stack" width="420" /> | <img src="https://raw.githubusercontent.com/pavanjoshi914/dev-portfolio-template/main/assets/preview-4.png" alt="Themes & Terminal" width="420" /> |
-
----
 
 ## What this edition adds
 
@@ -106,4 +91,4 @@ This is a static site. Deploy the root directory directly to **GitHub Pages**, *
 
 This project is licensed under the [MIT License](./LICENSE) — you are free to use, modify, and publish it for your own personal or commercial portfolio as long as the copyright and license notice are included.
 
-Original template © Pavan Joshi. Enhanced edition changes © Koussay Mehdouani — see [CHANGELOG.md](./CHANGELOG.md).
+Original template © Koussay Mehdouani.
