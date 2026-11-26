@@ -1,6 +1,6 @@
 # Changelog
 
-## Enhanced Edition 1.2.0 — 2026-11-26 (Koussay Mehdouani)
+## 1.2.0 — 2026-11-26
 
 ### Fixed — responsive pass (verified with real renders at 360 / 768 / 1280 px and 800×360 landscape)
 - The decorative "eye" on `/site/` shrank to ~72 px of illegible micro-text
@@ -16,9 +16,8 @@
 - The full-screen overlay now uses `100dvh` (with `100vh` fallback) so it
   tracks mobile browser chrome.
 
-## Enhanced Edition 1.1.0 — 2026-11-26 (Koussay Mehdouani)
+## 1.1.0 — 2026-11-26
 
-Based on the original template by Pavan Joshi (MIT).
 
 ### Added
 - `scripts/fetch-public.mjs` + `node scripts/build-data.mjs --fetch-public=<user>`:

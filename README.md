@@ -1,24 +1,21 @@
-# dev-portfolio-template — Enhanced Edition
+# dev-portfolio-template
 
-A Neovim-inspired developer portfolio template with an animated code-wall intro, interactive terminal-style editor, 8 built-in color themes, contribution calendar, and keyboard-first navigation (`j`/`k`, `:theme`, `enter`).
+My Neovim-style developer portfolio template. An animated code-wall intro, an interactive terminal-style editor, 8 built-in color themes, a contribution calendar, and keyboard-first navigation (`j`/`k`, `:theme`, `enter`).
 
-Zero build step required — pure HTML, CSS, and ES modules.
+Pure HTML, CSS, and ES modules — no build step, no framework, no binary files. What you see in this repo is the whole site.
 
-> **Original template** maintained by [Koussay Mehdouani](https://github.com/amkkoussay)
+Live example: https://koussay-portfolio-v2.vercel.app
 
+## What it does
 
-## What this edition adds
+- **Fills itself from your GitHub — no `gh` CLI, no token.** `node scripts/build-data.mjs --fetch-public=<your-username>` pulls your followers, stars, languages, per-repo facts, contribution window, and a code wall made of your own real code, straight from the public GitHub REST API.
+- **Validates the data before building.** If a data file is missing pieces or still holds someone else's snapshot, the build stops with a clear message instead of publishing a broken, blank site.
+- **Doesn't crash on bad data.** If a hand-edited data file is incomplete, the page degrades gracefully instead of going black.
+- **Labels partial data honestly.** The public API only exposes ~90 days of events, so the generated contribution window says exactly that in its own `source` field. No fake full-year numbers.
+- **Works on any screen.** Phone, tablet, desktop, landscape — verified with real renders at 360 / 390 / 768 / 1280 px and 800×360 landscape.
+- **Fonts from Google Fonts CDN.** The repo is 100% text — clone it, fork it, push it through any text-only pipeline.
 
-- **Public fetch mode — no `gh` CLI, no token.** `node scripts/build-data.mjs --fetch-public=<github-user>` (or the standalone `scripts/fetch-public.mjs`) fills every data file from the unauthenticated GitHub REST API: followers, stars, languages, per-repo facts, an honest contribution window, and a code wall made of **your own real code**. The original template could only do this with an authenticated `gh` CLI — or silently shipped the sample person's data.
-- **Build-time validation.** Offline builds now validate `github-snapshot.json`, `site/stack.json` and `site/months.json` before baking anything, and fail with a clear, actionable error instead of producing a site whose `/site/` page renders blank. A stale sample-data snapshot now triggers a loud warning naming the account it belongs to.
-- **Crash-proof rendering.** The editor and sidebar no longer die if a hand-edited `stack.json` is missing its `tools`/`site` arrays — the sections degrade gracefully instead of blanking the whole page.
-- **No binary font files.** Archivo, IBM Plex Mono and Instrument Serif load from Google Fonts; the repo is 100% text — clone it, fork it, or push it through any text-only pipeline.
-- **Honest data labels.** Where the public API can only see part of the truth (the events feed retains ~90 days), the generated data says so in its own `source` field instead of presenting a partial window as a full year.
-- **Responsive fixes.** The decorative eye no longer collapses into illegible micro-text over the header on phones, landscape phones keep a usable editor height, and the intro's bottom bar stays on screen on short viewports — all verified with real renders at phone, tablet, desktop, and landscape sizes.
-
----
-
-## Quick Start (With One AI Prompt)
+## Quick start (one AI prompt)
 
 1. Click **"Use this template"** on GitHub (or clone this repo).
 2. Open the folder in your AI coding assistant (Cursor, Claude Code, Antigravity, Windsurf, Copilot, etc.).
@@ -29,33 +26,29 @@ Zero build step required — pure HTML, CSS, and ES modules.
    ```
    Open `http://localhost:8767/` (intro) and `http://localhost:8767/site/` (editor).
 
----
+## Manual setup
 
-## Manual Setup
+Everything personal — identity, links, work history, projects, talks — lives in one file:
 
-All personal information, links, work history, projects, and talks live in a single file:
-
-- **`portfolio.config.json`** — edit your `identity`, `about`, `links`, `work`, `projects`, and `talks`.
+- **`portfolio.config.json`** — edit `identity`, `about`, `links`, `work`, `projects`, and `talks`.
 
 Then regenerate the site files:
 
 ```sh
-# Offline mode (validates and applies your config using the data files on disk)
+# Offline mode — validates and applies your config using the data files on disk
 node scripts/build-data.mjs
 
-# Public mode (fetches your real GitHub stats, contribution window & code wall
-# via the unauthenticated REST API — no gh CLI, no token)
+# Public mode — fetches your real GitHub stats, contribution window & code wall
+# via the unauthenticated REST API (no gh CLI, no token)
 node scripts/build-data.mjs --fetch-public=<your-github-username>
 
-# Online mode (full-year contribution calendar via the GitHub CLI)
+# Online mode — full-year contribution calendar via the GitHub CLI
 node scripts/build-data.mjs --fetch-github
 ```
 
 > **Notes:** Public mode uses ~40 of the ~60 unauthenticated REST requests/hour GitHub allows per IP. Its contribution window is the public events feed (~90 days / last 300 events) and is labelled as such in the generated data. Online mode requires the [GitHub CLI (`gh`)](https://cli.github.com/) installed and authenticated (`gh auth login`), and produces the full-year calendar.
 
----
-
-## Project Structure
+## Project structure
 
 | Path | Purpose |
 |---|---|
@@ -70,25 +63,17 @@ node scripts/build-data.mjs --fetch-github
 | `serve.py` | Local dev server with `Cache-Control: no-store` (`python3 serve.py [port]`) |
 | `scripts/build-face.py` | Optional script to generate the looping face-tracking intro layer |
 
----
+## Adding your own assets
 
-## Adding Your Own Assets
-
-- **Project Screenshots**: Drop images into `site/shots/` and reference them as `"shots/my-app.png"` in `portfolio.config.json`.
-- **Talk Photos**: Drop photos into `site/photos/<event>/` and reference them in `talks[].photos` in `portfolio.config.json`.
-- **Custom Logo**: Replace the SVG `<path>` in `favicon.svg`, `index.html`, `site/index.html`, and `MARK` in `site/wheel.js`.
-- **Optional Face Intro Layer**: See `scripts/build-face.py` if you want to add a green-screened portrait loop to the intro. Without `face.mp4` / `face.webm` / `face-track.json`, the intro skips the face layer automatically.
-
----
+- **Project screenshots**: drop images into `site/shots/` and reference them as `"shots/my-app.png"` in `portfolio.config.json`.
+- **Talk photos**: drop photos into `site/photos/<event>/` and reference them in `talks[].photos` in `portfolio.config.json`.
+- **Custom logo**: replace the SVG `<path>` in `favicon.svg`, `index.html`, `site/index.html`, and `MARK` in `site/wheel.js`.
+- **Optional face intro layer**: see `scripts/build-face.py`. Without `face.mp4` / `face.webm` / `face-track.json`, the intro skips the face layer automatically.
 
 ## Deploy
 
-This is a static site. Deploy the root directory directly to **GitHub Pages**, **Vercel**, **Netlify**, or **Cloudflare Pages** with no build command needed.
-
----
+Static site. Deploy the root directory directly to **GitHub Pages**, **Vercel**, **Netlify**, or **Cloudflare Pages** — no build command needed.
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE) — you are free to use, modify, and publish it for your own personal or commercial portfolio as long as the copyright and license notice are included.
-
-Original template © Koussay Mehdouani.
+[MIT](./LICENSE) — © 2026 Koussay Mehdouani. Use it, modify it, publish your own portfolio with it; keep the copyright and license notice.
