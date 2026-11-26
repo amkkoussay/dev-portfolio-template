@@ -188,3 +188,11 @@ button {
     bottom: 12px;
   }
 }
+
+/* Short viewports (e.g. landscape phones): the 560px stage floor would push
+   the intro's bottom bar below the fold — let the stage fit the screen. */
+@media (max-height: 560px) {
+  .stage {
+    min-height: 0;
+  }
+}

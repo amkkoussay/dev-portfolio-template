@@ -609,6 +609,9 @@ export function createWatch({ layer, deskHost, eyeHost, buffer, status, onState,
   function eyeBox() {
     const rect = eyeHost.getBoundingClientRect();
     if (rect.width < 60 || rect.height < 36) return null;
+    // CSS hides the eye on small/short screens (editor.css) — respect it here
+    // too, since the eye is drawn on this overlay canvas, not inside the host.
+    if (getComputedStyle(eyeHost).visibility === "hidden") return null;
     return { cx: rect.left + rect.width / 2, cy: rect.top + rect.height / 2, w: rect.width, h: rect.height };
   }
 

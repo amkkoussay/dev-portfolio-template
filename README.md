@@ -29,6 +29,7 @@ Zero build step required — pure HTML, CSS, and ES modules.
 - **Crash-proof rendering.** The editor and sidebar no longer die if a hand-edited `stack.json` is missing its `tools`/`site` arrays — the sections degrade gracefully instead of blanking the whole page.
 - **No binary font files.** Archivo, IBM Plex Mono and Instrument Serif load from Google Fonts; the repo is 100% text — clone it, fork it, or push it through any text-only pipeline.
 - **Honest data labels.** Where the public API can only see part of the truth (the events feed retains ~90 days), the generated data says so in its own `source` field instead of presenting a partial window as a full year.
+- **Responsive fixes.** The decorative eye no longer collapses into illegible micro-text over the header on phones, landscape phones keep a usable editor height, and the intro's bottom bar stays on screen on short viewports — all verified with real renders at phone, tablet, desktop, and landscape sizes.
 
 ---
 

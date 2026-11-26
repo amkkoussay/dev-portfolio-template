@@ -1,5 +1,21 @@
 # Changelog
 
+## Enhanced Edition 1.2.0 — 2026-11-26 (Koussay Mehdouani)
+
+### Fixed — responsive pass (verified with real renders at 360 / 768 / 1280 px and 800×360 landscape)
+- The decorative "eye" on `/site/` shrank to ~72 px of illegible micro-text
+  parked over the header on phones. It is now hidden on viewports ≤700 px
+  wide and ≤500 px tall: `editor.css` sets `visibility: hidden` and
+  `watch.js` respects it (the eye is drawn on the overlay canvas, so CSS
+  alone could not hide it). Desktop rendering is unchanged.
+- Landscape phones squeezed the editor between the fixed stage rows; the
+  desk row and eye now drop out on short screens (`max-height: 500px`) so
+  the editor keeps a usable height.
+- The intro stage's 560 px minimum height pushed its bottom bar below the
+  fold on short screens; the floor is relaxed under `max-height: 560px`.
+- The full-screen overlay now uses `100dvh` (with `100vh` fallback) so it
+  tracks mobile browser chrome.
+
 ## Enhanced Edition 1.1.0 — 2026-11-26 (Koussay Mehdouani)
 
 Based on the original template by Pavan Joshi (MIT).
