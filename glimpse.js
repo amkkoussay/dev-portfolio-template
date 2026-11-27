@@ -44,6 +44,7 @@ const FACE_TONE = { floor: 0.06, range: 0.84, gamma: 1.3, bold: 0.55, base: 0.03
 const EYE = { upper: 0.47, lower: 0.37, iris: 0.33, reach: 0.5, rise: 0.14 };
 const IRIS_ZOOM = { response: 0.8, near: 0.92, far: 1.15, span: 2000, locked: 0.9, pulse: 1.12, pulseMs: 320 };
 const DEFAULT_THEME = "blackmoney";
+const SCHEME_KEY = "koussay.scheme";
 const FROST = { blur: 1.6, tint: 0.85, ms: 250 };
 const FINE_W = FACE_FONT_PX * 0.6;
 const FINE_H = FACE_FONT_PX * 1.08;
@@ -216,7 +217,9 @@ function planVisit(data, fallback) {
   const themes = data?.themes?.length ? data.themes : [MONO];
   const dark = themes.filter((candidate) => !candidate.light);
   const pool = dark.length ? dark : themes;
-  const theme = themes.find((candidate) => candidate.name === DEFAULT_THEME) || pool[Math.floor(random() * pool.length)];
+  let savedScheme = null;
+  try { savedScheme = localStorage.getItem(SCHEME_KEY); } catch {}
+  const theme = themes.find((candidate) => candidate.name === savedScheme) || themes.find((candidate) => candidate.name === DEFAULT_THEME) || pool[Math.floor(random() * pool.length)];
   const rowsOf = (file) => {
     const marker = COMMENT[file.lang] || "//";
     const header = file.repo ? [{ text: `${marker} ── ${file.repo}/${file.path} ──`, num: null }, { text: "", num: null }] : [];
@@ -241,6 +244,7 @@ function luma(hex) {
 }
 
 function useTheme(theme) {
+  try { localStorage.setItem(SCHEME_KEY, theme.name); } catch {}
   const tints = Object.fromEntries(Object.entries(theme.kinds).map(([kind, hex]) => [kind, rgb(hex)]));
   for (const kind of ["ident", "member", "punct"]) tints[kind] ||= tints.text;
   const bg = theme.bg || "#050505";

@@ -50,34 +50,35 @@ const wrap = (text, width = 76) => {
 function syncIdentity() {
   const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const domain = esc(ID.domain);
+  const name = esc(ID.name);
   const tagline = esc(ID.tagline);
   const ghUrl = `https://github.com/${encodeURIComponent(OWNER)}`;
   const barTitle = esc(ID.barTitle || ID.name.toUpperCase());
 
   // favicon.svg
   let fav = read("favicon.svg");
-  fav = fav.replace(/<title>[^<]*<\/title>/, `<title>${domain}</title>`);
+  fav = fav.replace(/<title>[^<]*<\/title>/, `<title>${name} — ${tagline}</title>`);
   write("favicon.svg", fav);
 
   // index.html
   let idx = read("index.html");
   idx = idx
-    .replace(/<title>[^<]*<\/title>/, `<title>${domain}</title>`)
-    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${domain} — a quiet wall of code. ${tagline}">`)
-    .replace(/(<a class="brand"[^>]*>.*?<span>)[^<]*(<\/span><\/a>)/s, `$1${domain}$2`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${name} — ${tagline}</title>`)
+    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${name} — a quiet wall of code. ${tagline}">`)
+    .replace(/(<a class="brand"[^>]*>.*?<span>)[^<]*(<\/span><\/a>)/s, `$1${name}$2`)
     .replace(/<a href="https:\/\/github\.com\/[^"]*" rel="me">github<\/a>/, `<a href="${ghUrl}" rel="me">github</a>`)
-    .replace(/<h1 class="sr-only">[^<]*<\/h1>/, `<h1 class="sr-only">${domain} — ${tagline}</h1>`)
+    .replace(/<h1 class="sr-only">[^<]*<\/h1>/, `<h1 class="sr-only">${name} — ${tagline}</h1>`)
     .replace(/<p class="note" aria-hidden="true">\/\/ [^<]*<\/p>/, `<p class="note" aria-hidden="true">// ${tagline}</p>`);
   write("index.html", idx);
 
   // site/index.html
   let sIdx = read("site/index.html");
   sIdx = sIdx
-    .replace(/<title>[^<]*<\/title>/, `<title>${domain}</title>`)
-    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${domain} — work, projects, talks and themes, opened in an editor.">`)
-    .replace(/(<a class="brand"[^>]*>.*?<span>)[^<]*(<\/span><\/a>)/s, `$1${domain}$2`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${name} — ${tagline}</title>`)
+    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${name} — work, projects, talks and themes, opened in an editor.">`)
+    .replace(/(<a class="brand"[^>]*>.*?<span>)[^<]*(<\/span><\/a>)/s, `$1${name}$2`)
     .replace(/<a href="https:\/\/github\.com\/[^"]*" rel="me">github<\/a>/, `<a href="${ghUrl}" rel="me">github</a>`)
-    .replace(/<h1 class="sr-only">[^<]*<\/h1>/, `<h1 class="sr-only">${domain} — work, projects, talks and themes.</h1>`)
+    .replace(/<h1 class="sr-only">[^<]*<\/h1>/, `<h1 class="sr-only">${name} — work, projects, talks and themes.</h1>`)
     .replace(/<span class="bar-title">[^<]*<\/span>/, `<span class="bar-title">${barTitle}</span>`);
   write("site/index.html", sIdx);
 
@@ -100,6 +101,11 @@ function syncIdentity() {
     .replace(/const THEME_KEY = "[^"]*";/, `const THEME_KEY = "${prefix}.scheme";`)
     .replace(/const WORM_KEY = "[^"]*";/, `const WORM_KEY = "${prefix}.worm";`);
   write("site/editor.js", ed);
+
+  // glimpse.js (intro) shares the scheme key with the editor
+  let gl = read("glimpse.js");
+  gl = gl.replace(/const SCHEME_KEY = "[^"]*";/, `const SCHEME_KEY = "${prefix}.scheme";`);
+  write("glimpse.js", gl);
 }
 
 // ---------- 0b. Validate the data files (offline/public mode) ----------

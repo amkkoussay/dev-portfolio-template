@@ -147,7 +147,7 @@ const entries = [
   { id: "about", label: "whoami", kind: "about", tile: "about" },
   ...projectEntries.filter((entry) => !entry.parent),
   { id: "work", label: "work/", kind: "work", tile: "work" },
-  { id: "talks", label: "talks/", kind: "talks", tile: "talks" },
+  ...((content.talks || []).length ? [{ id: "talks", label: "talks/", kind: "talks", tile: "talks" }] : []),
   ...(childrenOf("more").length ? [{ id: "more", label: "more/", kind: "more" }] : []),
   ...(stack ? [{ id: "stack", label: "stack/", kind: "stack", tile: "stack" }] : []),
   { id: "themes", label: "themes/", kind: "themes", tile: "themes" },
@@ -571,7 +571,7 @@ function barView(entry) {
   }
   if (entry.kind === "themes") return [["THEMES", String(themes.length)], ["BUILT-IN", String(themes.filter((theme) => theme.included).length)]];
   if (entry.kind === "work") return [["ROLES", String((content.work || []).filter((item) => item.kind !== "talk").length)], ["SINCE", "2021"], ["NOW", "ALBY"]];
-  if (entry.kind === "talks") return [["TALKS", String((content.talks || []).length)], ["COUNTRIES", "4"], ["SINCE", "2022"]];
+  if (entry.kind === "talks") { const list = content.talks || []; return [["TALKS", String(list.length)], ["PLACES", String(new Set(list.map((talk) => talk.place.split(", ").pop())).size)]]; }
   if (entry.kind === "more") return [["PROJECTS", String(childrenOf("more").length)]];
   if (entry.kind === "stack") return [["LANGS", String((stack.languages ?? []).length)], ["TOOLS", String((stack.tools ?? []).length)], ["AI", String(stack.ai?.length ?? 0)]];
   return [["REPOS", fmt(snapshot.stars.repositoryCount)], ["STARS", fmt(snapshot.stars.total)], ["FOLLOWERS", fmt(snapshot.followers)]];

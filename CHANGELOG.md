@@ -1,3 +1,9 @@
+## 1.5.0 — 2026-11-27
+
+- Identity slots lead with the owner's name, not the domain: header brand, page titles, sr-only headings and meta descriptions are name-based (baked by syncIdentity).
+- Theme persistence is now shared across both pages: the intro reads and writes the same `<prefix>.scheme` localStorage key as the editor, so a palette chosen anywhere survives and carries over.
+- Talks section hides itself when the talks list is empty; its status-bar stats are derived from the data (the hardcoded "4 countries / since 2022" is gone).
+
 ## 1.4.1 — 2026-11-27
 
 - whoami call-to-action: an optional `about.cta` line renders in the about panel between the bio extra line and the links.
