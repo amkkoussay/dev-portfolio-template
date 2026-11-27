@@ -1,3 +1,7 @@
+## 1.4.1 — 2026-11-27
+
+- whoami call-to-action: an optional `about.cta` line renders in the about panel between the bio extra line and the links.
+
 ## 1.4.0 — 2026-11-27
 
 - Case-study blocks: an optional `case` object per project (problem / solution / role) renders as a `cat case-study.md` block in the editor, with tech, live and source rows — so a project reads as a case study, not just stats.

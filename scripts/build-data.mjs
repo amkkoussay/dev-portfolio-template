@@ -374,6 +374,7 @@ const aboutLines = [
   "",
   CONFIG.about.bio,
   ...(CONFIG.about.extra ? ["", CONFIG.about.extra] : []),
+  ...(CONFIG.about.cta ? ["", CONFIG.about.cta] : []),
   "",
   ...CONFIG.links.filter((l) => !l.url.startsWith("mailto:")).map((l) => `[${l.label}](${l.url})`),
 ];
