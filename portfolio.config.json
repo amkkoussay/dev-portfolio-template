@@ -1,1 +1,197 @@
-{"about":{"bio":"High-school student and open-source contributor from Tunisia. I build applied-AI tools for health, agriculture and flood risk, and I contribute fixes to the projects I learn from — pandas, Wireshark, curl and GitLab.","extra":"Tunisia · Open Source · Sciences de l'informatique"},"identity":{"barTitle":"KOUSSAY MEHDOUANI","domain":"koussay-portfolio.vercel.app","github":"amkkoussay","name":"Koussay Mehdouani","storagePrefix":"koussay","tagline":"applied AI, open source, health data.","terminalUser":"koussay"},"links":[{"label":"Email","url":"mailto:koussaymehdouani@gmail.com"},{"label":"GitHub","url":"https://github.com/amkkoussay"},{"label":"LinkedIn","url":"https://www.linkedin.com/in/koussay-mehdouani-45560a389"},{"label":"Blog","url":"https://dev.to/koussay_mehdouani_0edec78"},{"label":"ORCID","url":"https://orcid.org/0009-0003-5825-3692"}],"projects":[{"desc":"Shared memory for AI agents: bi-temporal facts, first-class decision units, and conflicts that stay pending until the owner rules.","githubRepo":"amkkoussay/Mersad","long":"Mirsad gives AI agents a shared, living memory. Facts are stored bi-temporally in SQLite with episodes as provenance, and disagreements between agents become Decision units — the system never judges; the owner has the final word. It ships as the mirsad-mcp package on PyPI and runs live on Cloudflare Workers + D1, with Claude and ChatGPT connected.","name":"Mirsad","shots":[],"stack":["Python","MCP","SQLite","Cloudflare Workers"],"tag":"AI Agents · MCP · Python","url":"https://github.com/amkkoussay/Mersad"},{"desc":"Clinic management platform with a role-aware AI assistant, an integration API, and automated appointment emails.","githubRepo":"amkkoussay/clinique","long":"A Flask clinic platform with role-based access for patients, doctors and reception. A Qwen-powered chat assistant uses role-aware tools, an integration blueprint exposes booking events, and an n8n workflow turns them into confirmation and cancellation emails — verified end-to-end with real deliveries.","name":"Clinique","shots":[],"stack":["Flask","SQLite","FHIR","n8n"],"tag":"Health Informatics · Flask","url":"https://clinique-six.vercel.app"},{"desc":"Relative flood-risk screening with a transparent weighted model — built for screening, not prediction.","githubRepo":"amkkoussay/rain2risk","long":"rain2risk turns rainfall and terrain signals into a relative flood-risk picture using a published weighted model (40/20/15/15/10). The methodology is stated openly in the README, including what the tool does not claim: it screens relative risk, it does not predict floods.","name":"rain2risk","shots":[],"stack":["Python","Geospatial","Vercel"],"tag":"GeoAI · Climate Risk","url":"https://rain2risk.vercel.app"},{"desc":"Plant-disease guidance backed by a source-verified knowledge base: 18 crops, 184 verified disease records.","githubRepo":"amkkoussay/cropguide-ai","long":"CropGuide identifies possible plant diseases from a photo. Its knowledge base was rebuilt from real, source-backed records only — templated or generated records were rejected. Every one of the 184 records across 18 crops is traceable to its source.","name":"CropGuide","shots":[],"stack":["JavaScript","SQLite","Computer Vision"],"tag":"AgriTech · AI","url":"https://github.com/amkkoussay/cropguide-ai"},{"desc":"Full-stack health informatics and symptom-analysis application. Exploratory project.","githubRepo":"amkkoussay/ai-health-assistant","long":"An exploratory full-stack health assistant: symptom analysis and health-data handling, built to learn how clinical information should (and should not) flow through an AI interface. Labelled exploratory — a proof of concept, not a medical tool.","more":true,"name":"AI Health Assistant","shots":[],"stack":["JavaScript","Full-stack"],"tag":"Health Informatics · Exploratory","url":"https://github.com/amkkoussay/ai-health-assistant"},{"desc":"Geospatial exploration of how services and risk are distributed across places. Exploratory project.","githubRepo":"amkkoussay/mapping-equity-geoai","long":"An exploratory GeoAI project mapping how access and risk are distributed geographically — part of an ongoing exploration of spatial data for public-good questions.","more":true,"name":"Mapping Equity GeoAI","shots":[],"stack":["Python","Geospatial"],"tag":"GeoAI · Exploratory","url":"https://github.com/amkkoussay/mapping-equity-geoai"},{"desc":"A modular Flask application with a layered database and service architecture. Proof of concept.","githubRepo":"amkkoussay/Pann","long":"A proof-of-concept Flask application exploring modular architecture: separated database and service layers, built as a learning exercise in structuring a Python web app.","more":true,"name":"Pann","shots":[],"stack":["Python","Flask"],"tag":"Flask · Experiment","url":"https://github.com/amkkoussay/Pann"}],"talks":[],"work":[{"desc":"Merged pull requests in pandas and GitLab's gitlab-shell, a merged change in Wireshark (my name is in the official AUTHORS file), and fixes under review in curl and xarray. Every fix starts with a reproduction and ships with tests.","org":"pandas · Wireshark · GitLab · curl","title":"Open Source Contributor","url":"https://github.com/amkkoussay","when":"11/2026 – present","where":"Remote"},{"desc":"Built Mirsad, a shared memory hub for AI agents — an MCP server published on PyPI and running live on Cloudflare Workers + D1: bi-temporal facts, first-class decisions, and conflicts only the owner can resolve.","org":"Mirsad","title":"Creator","url":"https://github.com/amkkoussay/Mersad","when":"11/2026 – present","where":"Open source"},{"desc":"Published a narrative review on the robustness of AI clinical decision-support systems under unreliable patient data, proposing the CARE framework for when a system should abstain instead of deciding.","org":"Zenodo","title":"Independent Researcher","url":"https://doi.org/10.5281/zenodo.22883408","when":"09/2026","where":"Tunisia"},{"desc":"Final-year computer-science track in high school (baccalaureate cycle 2027–2028), building applied-AI projects for health, agriculture and climate risk alongside school.","org":"Sciences de l'informatique","title":"Student","when":"2026 – present","where":"Tunisia"}]}
+{
+  "about": {
+    "bio": "High-school student and open-source contributor from Tunisia. I build applied-AI tools for health, agriculture and flood risk, and I contribute fixes to the projects I learn from — pandas, Wireshark, curl and GitLab.",
+    "extra": "Tunisia · Open Source · Sciences de l'informatique"
+  },
+  "identity": {
+    "barTitle": "KOUSSAY MEHDOUANI",
+    "domain": "koussay-portfolio.vercel.app",
+    "github": "amkkoussay",
+    "name": "Koussay Mehdouani",
+    "storagePrefix": "koussay",
+    "tagline": "Applied AI · Data Engineering · Open Source",
+    "terminalUser": "koussay"
+  },
+  "links": [
+    {
+      "label": "Email",
+      "url": "mailto:koussaymehdouani@gmail.com"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/amkkoussay"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/koussay-mehdouani-45560a389"
+    },
+    {
+      "label": "Blog",
+      "url": "https://dev.to/koussay_mehdouani_0edec78"
+    },
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0009-0003-5825-3692"
+    }
+  ],
+  "projects": [
+    {
+      "desc": "Shared memory for AI agents: bi-temporal facts, first-class decision units, and conflicts that stay pending until the owner rules.",
+      "githubRepo": "amkkoussay/Mersad",
+      "long": "Mirsad gives AI agents a shared, living memory. Facts are stored bi-temporally in SQLite with episodes as provenance, and disagreements between agents become Decision units — the system never judges; the owner has the final word. It ships as the mirsad-mcp package on PyPI and runs live on Cloudflare Workers + D1, with Claude and ChatGPT connected.",
+      "name": "Mirsad",
+      "shots": [],
+      "stack": [
+        "Python",
+        "MCP",
+        "SQLite",
+        "Cloudflare Workers"
+      ],
+      "tag": "AI Agents · MCP · Python",
+      "url": "https://github.com/amkkoussay/Mersad"
+    },
+    {
+      "desc": "Relative flood-risk screening with a transparent weighted model — built for screening, not prediction.",
+      "githubRepo": "amkkoussay/rain2risk",
+      "long": "rain2risk turns rainfall and terrain signals into a relative flood-risk picture using a published weighted model (40/20/15/15/10). The methodology is stated openly in the README, including what the tool does not claim: it screens relative risk, it does not predict floods.",
+      "name": "rain2risk",
+      "shots": [],
+      "stack": [
+        "Python",
+        "Geospatial",
+        "Vercel"
+      ],
+      "tag": "GeoAI · Climate Risk",
+      "url": "https://rain2risk.vercel.app"
+    },
+    {
+      "desc": "Plant-disease guidance backed by a source-verified knowledge base: 18 crops, 184 verified disease records.",
+      "githubRepo": "amkkoussay/cropguide-ai",
+      "long": "CropGuide identifies possible plant diseases from a photo. Its knowledge base was rebuilt from real, source-backed records only — templated or generated records were rejected. Every one of the 184 records across 18 crops is traceable to its source.",
+      "name": "CropGuide",
+      "shots": [],
+      "stack": [
+        "JavaScript",
+        "SQLite",
+        "Computer Vision"
+      ],
+      "tag": "AgriTech · AI",
+      "url": "https://github.com/amkkoussay/cropguide-ai"
+    },
+    {
+      "desc": "Clinic management platform with a role-aware AI assistant, an integration API, and automated appointment emails.",
+      "githubRepo": "amkkoussay/clinique",
+      "long": "A Flask clinic platform with role-based access for patients, doctors and reception. A Qwen-powered chat assistant uses role-aware tools, an integration blueprint exposes booking events, and an n8n workflow turns them into confirmation and cancellation emails — verified end-to-end with real deliveries.",
+      "name": "Clinique",
+      "shots": [],
+      "stack": [
+        "Flask",
+        "SQLite",
+        "FHIR",
+        "n8n"
+      ],
+      "tag": "Health Informatics · Flask",
+      "url": "https://clinique-six.vercel.app"
+    },
+    {
+      "desc": "Full-stack health informatics and symptom-analysis application. Exploratory project.",
+      "githubRepo": "amkkoussay/ai-health-assistant",
+      "long": "An exploratory full-stack health assistant: symptom analysis and health-data handling, built to learn how clinical information should (and should not) flow through an AI interface. Labelled exploratory — a proof of concept, not a medical tool.",
+      "more": true,
+      "name": "AI Health Assistant",
+      "shots": [],
+      "stack": [
+        "JavaScript",
+        "Full-stack"
+      ],
+      "tag": "Health Informatics · Exploratory",
+      "url": "https://github.com/amkkoussay/ai-health-assistant"
+    },
+    {
+      "desc": "Geospatial exploration of how services and risk are distributed across places. Exploratory project.",
+      "githubRepo": "amkkoussay/mapping-equity-geoai",
+      "long": "An exploratory GeoAI project mapping how access and risk are distributed geographically — part of an ongoing exploration of spatial data for public-good questions.",
+      "more": true,
+      "name": "Mapping Equity GeoAI",
+      "shots": [],
+      "stack": [
+        "Python",
+        "Geospatial"
+      ],
+      "tag": "GeoAI · Exploratory",
+      "url": "https://github.com/amkkoussay/mapping-equity-geoai"
+    },
+    {
+      "desc": "A modular Flask application with a layered database and service architecture. Proof of concept.",
+      "githubRepo": "amkkoussay/Pann",
+      "long": "A proof-of-concept Flask application exploring modular architecture: separated database and service layers, built as a learning exercise in structuring a Python web app.",
+      "more": true,
+      "name": "Pann",
+      "shots": [],
+      "stack": [
+        "Python",
+        "Flask"
+      ],
+      "tag": "Flask · Experiment",
+      "url": "https://github.com/amkkoussay/Pann"
+    }
+  ],
+  "talks": [],
+  "work": [
+    {
+      "title": "Open Source Contributor",
+      "org": "pandas",
+      "when": "11/2026",
+      "where": "Remote",
+      "url": "https://github.com/pandas-dev/pandas/pull/71991",
+      "desc": "Merged PR #71991 — fixed pd.to_numeric(errors='coerce') on ArrowDtype strings: unparseable values were stored as float NaN instead of NA, and a parsed value could be duplicated next to a missing one. Reproduced first, fixed at the root cause, four regression tests added."
+    },
+    {
+      "title": "Open Source Contributor",
+      "org": "Wireshark",
+      "when": "11/2026",
+      "where": "Remote",
+      "url": "https://gitlab.com/wireshark/wireshark/-/merge_requests/28001",
+      "desc": "Merged MR !28001 — gave the asn2deb tool its .py extension. A change with zero lines of code that put my name in Wireshark's official AUTHORS file."
+    },
+    {
+      "title": "Open Source Contributor",
+      "org": "GitLab — gitlab-shell",
+      "when": "11/2026",
+      "where": "Remote",
+      "url": "https://gitlab.com/gitlab-org/gitlab-shell/-/merge_requests/1664",
+      "desc": "Merged MR !1664 — gitlab-shell's parse-failure errors now carry the request context that caused them, closing issue #888. Survived a blocking maintainer review: his catch was in my own fix, and fixing that made the change right."
+    },
+    {
+      "title": "Open Source Contributor",
+      "org": "Microsoft — azure-docs",
+      "when": "11/2026",
+      "where": "Remote",
+      "url": "https://github.com/MicrosoftDocs/azure-docs/pull/128901",
+      "desc": "Two merged PRs (#128901, #128902) — documentation fixes in the Azure Health Data Services and Blob Storage docs. My first merged contributions."
+    },
+    {
+      "desc": "Built Mirsad, a shared memory hub for AI agents — an MCP server published on PyPI and running live on Cloudflare Workers + D1: bi-temporal facts, first-class decisions, and conflicts only the owner can resolve.",
+      "org": "Mirsad",
+      "title": "Creator",
+      "url": "https://github.com/amkkoussay/Mersad",
+      "when": "11/2026 – present",
+      "where": "Open source"
+    },
+    {
+      "desc": "Published a narrative review on the robustness of AI clinical decision-support systems under unreliable patient data, proposing the CARE framework for when a system should abstain instead of deciding.",
+      "org": "Zenodo",
+      "title": "Independent Researcher",
+      "url": "https://doi.org/10.5281/zenodo.22883408",
+      "when": "09/2026",
+      "where": "Tunisia"
+    },
+    {
+      "desc": "Final-year computer-science track in high school (baccalaureate cycle 2027–2028), building applied-AI projects for health, agriculture and climate risk alongside school.",
+      "org": "Sciences de l'informatique",
+      "title": "Student",
+      "when": "2026 – present",
+      "where": "Tunisia"
+    }
+  ]
+}
