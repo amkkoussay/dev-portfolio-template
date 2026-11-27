@@ -1,6 +1,6 @@
 {
  "owner": "amkkoussay",
- "fetchedAt": "2026-11-27T07:00:58.290Z",
+ "fetchedAt": "2026-11-27T09:13:30.042Z",
  "about": {
   "repo": "amkkoussay",
   "lines": [
@@ -41,6 +41,11 @@
     "SQLite",
     "Cloudflare Workers"
    ],
+   "case": {
+    "problem": "AI assistants like Claude and ChatGPT each start with amnesia: nothing one of them learns survives into the next session, and when two agents record different versions of a fact there is no trace of who decided what, or why.",
+    "solution": "A shared memory hub with bi-temporal facts (every value keeps its validity window), first-class Decision units that store reasons, evidence and rejected alternatives, and a conflict queue where a challenged fact stays pending until the owner rules. Ships as an MCP server (13 tools) with a live graph viewer and a PyPI package; also deployed on Cloudflare Workers + D1.",
+    "role": "Designed and built solo — core engine, MCP server, viewer, deployment and the release process."
+   },
    "images": [
     {
      "file": "shots/mirsad.png",
@@ -90,6 +95,11 @@
     "Geospatial",
     "Vercel"
    ],
+   "case": {
+    "problem": "Flood risk in Tunis is published as static maps and reports; a resident cannot ask 'what about my street?' and get an answer they can check.",
+    "solution": "Relative flood-risk screening: pick a point on the map and the app scores the surrounding grid from rainfall, elevation and drainage factors, with the weighting published in the open (40/20/15/15/10) and the result labelled as relative screening, not a prediction.",
+    "role": "Solo build — scoring backend, methodology write-up and the Leaflet map frontend."
+   },
    "images": [
     {
      "file": "shots/rain2risk.png",
@@ -138,6 +148,11 @@
     "SQLite",
     "Computer Vision"
    ],
+   "case": {
+    "problem": "Plant apps look at one photo and announce a disease with confidence — a guess dressed as a diagnosis, which can push a farmer toward the wrong treatment.",
+    "solution": "Photo triage that first identifies the crop, then matches visible signs against a source-verified disease database (18 crops, 184 records), shows its evidence, and abstains — 'the photo does not give enough evidence' — when the signs are not conclusive.",
+    "role": "Solo build — curated the verified knowledge base record by record and built the app around the abstention rule."
+   },
    "images": [
     {
      "file": "shots/cropguide.png",
@@ -187,6 +202,11 @@
     "FHIR",
     "n8n"
    ],
+   "case": {
+    "problem": "A small clinic runs patients, appointments and records across paper files and chat threads; nothing is searchable and reminders depend on memory.",
+    "solution": "A clinic management platform: patients, appointments, medical records and billing with role-based access (admin, doctor, receptionist, patient), a FHIR-shaped REST API, an AI assistant whose tools are scoped to the caller's role, and n8n webhooks that fire booking confirmations and cancellations.",
+    "role": "Solo build — Flask/SQLite platform, role-scoped chatbot tools and the n8n event integration, tested end-to-end live."
+   },
    "images": [
     {
      "file": "shots/clinique.png",
@@ -235,6 +255,11 @@
     "JavaScript",
     "Full-stack"
    ],
+   "case": {
+    "problem": "Symptom checkers rush to name a disease; for an Arabic speaker the options are worse — translated lists with no sense of urgency or safety.",
+    "solution": "An Arabic-first health explainer (Nabd) that organizes what the user feels, explains what it may mean and what step comes next, puts safety signals first, and never claims a diagnosis.",
+    "role": "Solo build — exploratory project; content structure and the safety-first interaction."
+   },
    "images": [
     {
      "file": "shots/ai-health-assistant.png",
@@ -282,6 +307,11 @@
     "Python",
     "Geospatial"
    ],
+   "case": {
+    "problem": "Unequal access to public services is easy to assert and hard to show; without spatial evidence it stays an opinion.",
+    "solution": "A geospatial analysis of service coverage shipped as a full documentation package — evidence register, methodology, data lineage and a validation report — so every claim in it can be re-checked.",
+    "role": "Solo research and build — exploratory / proof of concept."
+   },
    "images": [],
    "lines": [
     "# Mapping Equity GeoAI",
@@ -320,6 +350,11 @@
     "Python",
     "Flask"
    ],
+   "case": {
+    "problem": "A small bakery tracks stock, purchasing and profit in notebooks; reordering is guesswork and losses surface weeks late.",
+    "solution": "BakeryERP: inventory and purchasing with predictive reorder suggestions, profitability analytics, PDF/Excel exports and role-based access (admin, manager, cashier, customer); demo accounts are only ever seeded with explicit passwords, never defaults.",
+    "role": "Solo build — Flask ERP with database migrations and a test suite."
+   },
    "images": [
     {
      "file": "shots/pann.png",

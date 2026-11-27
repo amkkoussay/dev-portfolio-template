@@ -1,3 +1,7 @@
+## 1.4.0 — 2026-11-27
+
+- Case-study blocks: an optional `case` object per project (problem / solution / role) renders as a `cat case-study.md` block in the editor, with tech, live and source rows — so a project reads as a case study, not just stats.
+
 ## 1.3.0 — 2026-11-27
 
 - Real project screenshots: each project can carry shots (site/shots/*.png) shown in the wheel tiles and the project panel.

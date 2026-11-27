@@ -298,6 +298,23 @@ function room(used) {
   return Math.max(6, Math.min(GAUGE, chars - used));
 }
 
+function caseLines(project) {
+  const c = project.case;
+  const out = [];
+  const field = (label, text) => {
+    out.push({ segments: [[label, "t-key"]] });
+    out.push({ segments: [["  " + text]] });
+    out.push({ segments: [" "] });
+  };
+  if (c.problem) field("problem", c.problem);
+  if (c.solution) field("solution", c.solution);
+  if (c.role) field("my role", c.role);
+  if ((project.stack || []).length) out.push({ segments: [[pad("tech"), "t-key"], [project.stack.join(" · "), "md-code"]] });
+  if (project.url && project.url !== project.github) out.push({ segments: [[pad("live"), "t-key"], [project.url.replace(/^https:\/\//, ""), "md-code"]] });
+  if (project.github) out.push({ segments: [[pad("source"), "t-key"], [project.github.replace(/^https:\/\//, ""), "md-code"]] });
+  return out;
+}
+
 function projectSpec(project) {
   const { share, note } = starShare(project.stars || 0);
   const out = [
@@ -320,6 +337,7 @@ function projectSpec(project) {
     shots: project.images.map((image, index) => ({ ...image, repo: project.repo, file: image.file, name: image.label || fileLabel(image, index) })),
     blocks: [
       { cmd: `fetch ${project.repo}`, out },
+      ...(project.case ? [{ cmd: "cat case-study.md", out: caseLines(project) }] : []),
       { cmd: "ls shots/", viewer: true },
       { cmd: `open ${url.replace(/^https:\/\//, "")}`, link: { text: url.replace(/^https:\/\//, ""), href: url } },
     ],

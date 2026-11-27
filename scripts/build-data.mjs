@@ -267,6 +267,7 @@ const projects = CONFIG.projects.map((p) => {
     counts: {},
     github: full ? `https://github.com/${full}` : null,
     stack: p.stack || [],
+    case: p.case || null,
     images,
     lines,
   };
