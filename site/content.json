@@ -1,6 +1,6 @@
 {
  "owner": "amkkoussay",
- "fetchedAt": "2026-11-27T06:36:17.433Z",
+ "fetchedAt": "2026-11-27T07:00:58.290Z",
  "about": {
   "repo": "amkkoussay",
   "lines": [
@@ -41,10 +41,18 @@
     "SQLite",
     "Cloudflare Workers"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/mirsad.png",
+     "source": "shots/mirsad.png",
+     "alt": "Mirsad screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Mirsad",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Shared memory for AI agents: bi-temporal facts, first-class decision units, and conflicts that stay pending until the owner rules.",
     "",
@@ -82,10 +90,18 @@
     "Geospatial",
     "Vercel"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/rain2risk.png",
+     "source": "shots/rain2risk.png",
+     "alt": "rain2risk screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# rain2risk",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Relative flood-risk screening with a transparent weighted model — built for screening, not prediction.",
     "",
@@ -122,10 +138,18 @@
     "SQLite",
     "Computer Vision"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/cropguide.png",
+     "source": "shots/cropguide.png",
+     "alt": "CropGuide screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# CropGuide",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Plant-disease guidance backed by a source-verified knowledge base: 18 crops, 184 verified disease records.",
     "",
@@ -163,10 +187,18 @@
     "FHIR",
     "n8n"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/clinique.png",
+     "source": "shots/clinique.png",
+     "alt": "Clinique screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Clinique",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Clinic management platform with a role-aware AI assistant, an integration API, and automated appointment emails.",
     "",
@@ -203,10 +235,18 @@
     "JavaScript",
     "Full-stack"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/ai-health-assistant.png",
+     "source": "shots/ai-health-assistant.png",
+     "alt": "AI Health Assistant screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# AI Health Assistant",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Full-stack health informatics and symptom-analysis application. Exploratory project.",
     "",
@@ -280,10 +320,18 @@
     "Python",
     "Flask"
    ],
-   "images": [],
+   "images": [
+    {
+     "file": "shots/pann.png",
+     "source": "shots/pann.png",
+     "alt": "Pann screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Pann",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### A modular Flask application with a layered database and service architecture. Proof of concept.",
     "",

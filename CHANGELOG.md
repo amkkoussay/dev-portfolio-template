@@ -1,3 +1,9 @@
+## 1.3.0 — 2026-11-27
+
+- Real project screenshots: each project can carry shots (site/shots/*.png) shown in the wheel tiles and the project panel.
+- Honest stats: unknown numbers now render as "—" instead of 0 (fmt/num guards in editor.js; star share hides when unknown).
+- Intro onboarding hint: "interactive portfolio — press enter or tap to explore" above the enter bar.
+
 ## 1.2.1 — 2026-11-27
 
 - Fixed per-project stats rendering as zeros after offline builds: fetch-public now collects per-repo facts (stars, forks, watchers, commits, files) into github-snapshot.json, and build-data falls back to them when the gh CLI is unavailable.

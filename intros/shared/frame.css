@@ -197,3 +197,17 @@ button {
     min-height: 0;
   }
 }
+.hint {
+  position: absolute;
+  left: 40px;
+  bottom: 64px;
+  z-index: 6;
+  margin: 0;
+  font: 11px/1.5 "IBM Plex Mono", monospace;
+  letter-spacing: .04em;
+  color: var(--dim);
+  opacity: .9;
+}
+@media (max-width: 700px) {
+  .hint { left: 16px; bottom: 60px; right: 16px; }
+}

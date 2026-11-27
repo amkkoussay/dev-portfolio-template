@@ -40,7 +40,9 @@
       "githubRepo": "amkkoussay/Mersad",
       "long": "Mirsad gives AI agents a shared, living memory. Facts are stored bi-temporally in SQLite with episodes as provenance, and disagreements between agents become Decision units — the system never judges; the owner has the final word. It ships as the mirsad-mcp package on PyPI and runs live on Cloudflare Workers + D1, with Claude and ChatGPT connected.",
       "name": "Mirsad",
-      "shots": [],
+      "shots": [
+        "shots/mirsad.png"
+      ],
       "stack": [
         "Python",
         "MCP",
@@ -55,7 +57,9 @@
       "githubRepo": "amkkoussay/rain2risk",
       "long": "rain2risk turns rainfall and terrain signals into a relative flood-risk picture using a published weighted model (40/20/15/15/10). The methodology is stated openly in the README, including what the tool does not claim: it screens relative risk, it does not predict floods.",
       "name": "rain2risk",
-      "shots": [],
+      "shots": [
+        "shots/rain2risk.png"
+      ],
       "stack": [
         "Python",
         "Geospatial",
@@ -69,7 +73,9 @@
       "githubRepo": "amkkoussay/cropguide-ai",
       "long": "CropGuide identifies possible plant diseases from a photo. Its knowledge base was rebuilt from real, source-backed records only — templated or generated records were rejected. Every one of the 184 records across 18 crops is traceable to its source.",
       "name": "CropGuide",
-      "shots": [],
+      "shots": [
+        "shots/cropguide.png"
+      ],
       "stack": [
         "JavaScript",
         "SQLite",
@@ -83,7 +89,9 @@
       "githubRepo": "amkkoussay/clinique",
       "long": "A Flask clinic platform with role-based access for patients, doctors and reception. A Qwen-powered chat assistant uses role-aware tools, an integration blueprint exposes booking events, and an n8n workflow turns them into confirmation and cancellation emails — verified end-to-end with real deliveries.",
       "name": "Clinique",
-      "shots": [],
+      "shots": [
+        "shots/clinique.png"
+      ],
       "stack": [
         "Flask",
         "SQLite",
@@ -99,7 +107,9 @@
       "long": "An exploratory full-stack health assistant: symptom analysis and health-data handling, built to learn how clinical information should (and should not) flow through an AI interface. Labelled exploratory — a proof of concept, not a medical tool.",
       "more": true,
       "name": "AI Health Assistant",
-      "shots": [],
+      "shots": [
+        "shots/ai-health-assistant.png"
+      ],
       "stack": [
         "JavaScript",
         "Full-stack"
@@ -127,7 +137,9 @@
       "long": "A proof-of-concept Flask application exploring modular architecture: separated database and service layers, built as a learning exercise in structuring a Python web app.",
       "more": true,
       "name": "Pann",
-      "shots": [],
+      "shots": [
+        "shots/pann.png"
+      ],
       "stack": [
         "Python",
         "Flask"

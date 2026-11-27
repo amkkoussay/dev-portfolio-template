@@ -15,7 +15,7 @@ const make = (tag, className, text) => {
   return node;
 };
 const key = (value) => String(value).toLowerCase().replace(/[^a-z0-9]/g, "");
-const fmt = (value) => Math.round(value).toLocaleString("en-US").replace(/,/g, "'");
+const fmt = (value) => (value == null || Number.isNaN(value) ? "—" : Math.round(value).toLocaleString("en-US").replace(/,/g, "'"));
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");
 const narrow = matchMedia("(max-width: 700px)");
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -279,13 +279,14 @@ function refit() {
 }
 
 const pad = (label) => label.padEnd(9);
-const num = (value) => fmt(value ?? 0).padStart(6);
+const num = (value) => fmt(value).padStart(6);
 const fact = (label, value, extra = []) => ({ segments: [[pad(label), "t-key"], [num(value), "md-num"], ...extra] });
 const month = (iso) => iso.slice(0, 7);
 
 function starShare(stars) {
   const total = snapshot.stars?.total || 0;
   if (!total) return { share: 0, note: "" };
+  if (stars == null) return { share: 0, note: "" };
   const share = Math.round((stars / total) * 100);
   return { share: share || (stars ? 0.5 : 0), note: `  ${share || (stars ? "<1" : 0)}% of all stars` };
 }
@@ -548,7 +549,7 @@ function textOf(entry) {
 function barView(entry) {
   if (entry.kind === "project") {
     const p = entry.data;
-    return [["STARS", fmt(p.stars)], ["FORKS", fmt(p.forks ?? 0)], ["WATCH", fmt(p.watchers ?? 0)]];
+    return [["STARS", fmt(p.stars)], ["FORKS", fmt(p.forks)], ["WATCH", fmt(p.watchers)]];
   }
   if (entry.kind === "themes") return [["THEMES", String(themes.length)], ["BUILT-IN", String(themes.filter((theme) => theme.included).length)]];
   if (entry.kind === "work") return [["ROLES", String((content.work || []).filter((item) => item.kind !== "talk").length)], ["SINCE", "2021"], ["NOW", "ALBY"]];
