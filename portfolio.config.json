@@ -6,7 +6,7 @@
   },
   "identity": {
     "barTitle": "KOUSSAY MEHDOUANI",
-    "domain": "koussay-portfolio.vercel.app",
+    "domain": "koussay-portfolio-v2.vercel.app",
     "github": "amkkoussay",
     "name": "Koussay Mehdouani",
     "storagePrefix": "koussay",
@@ -31,6 +31,10 @@
       "url": "https://dev.to/koussay_mehdouani_0edec78"
     },
     {
+      "label": "CV",
+      "url": "/cv.pdf"
+    },
+    {
       "label": "ORCID",
       "url": "https://orcid.org/0009-0003-5825-3692"
     }
@@ -48,7 +52,7 @@
         "Python",
         "MCP",
         "SQLite",
-        "Cloudflare Workers"
+        "Cloudflare D1"
       ],
       "tag": "AI Agents · MCP · Python",
       "url": "https://github.com/amkkoussay/Mersad",
@@ -56,7 +60,8 @@
         "problem": "AI assistants like Claude and ChatGPT each start with amnesia: nothing one of them learns survives into the next session, and when two agents record different versions of a fact there is no trace of who decided what, or why.",
         "solution": "A shared memory hub with bi-temporal facts (every value keeps its validity window), first-class Decision units that store reasons, evidence and rejected alternatives, and a conflict queue where a challenged fact stays pending until the owner rules. Ships as an MCP server (13 tools) with a live graph viewer and a PyPI package; also deployed on Cloudflare Workers + D1.",
         "role": "Designed and built solo — core engine, MCP server, viewer, deployment and the release process."
-      }
+      },
+      "title": "MIRSAD"
     },
     {
       "desc": "Relative flood-risk screening with a transparent weighted model — built for screening, not prediction.",
@@ -68,16 +73,19 @@
       ],
       "stack": [
         "Python",
-        "Geospatial",
-        "Vercel"
+        "Leaflet",
+        "OpenWeather",
+        "Open-Meteo",
+        "ESA WorldCover"
       ],
       "tag": "GeoAI · Climate Risk",
       "url": "https://rain2risk.vercel.app",
       "case": {
         "problem": "Flood risk in Tunis is published as static maps and reports; a resident cannot ask 'what about my street?' and get an answer they can check.",
-        "solution": "Relative flood-risk screening: pick a point on the map and the app scores the surrounding grid from rainfall, elevation and drainage factors, with the weighting published in the open (40/20/15/15/10) and the result labelled as relative screening, not a prediction.",
+        "solution": "Five weighted factors — rainfall 40%, slope 20%, elevation 15%, built-up share 15%, distance to water 10% — computed per map cell from OpenWeather rainfall and Open-Meteo terrain, exactly as documented in the README. The ESA WorldCover land-cover layer is currently unavailable in production and is shown as unavailable, never guessed.",
         "role": "Solo build — scoring backend, methodology write-up and the Leaflet map frontend."
-      }
+      },
+      "title": "Rain2Risk"
     },
     {
       "desc": "Plant-disease guidance backed by a source-verified knowledge base: 18 crops, 184 verified disease records.",
@@ -89,16 +97,18 @@
       ],
       "stack": [
         "JavaScript",
-        "SQLite",
-        "Computer Vision"
+        "Plant.id",
+        "Gemini Vision",
+        "SQLite"
       ],
       "tag": "AgriTech · AI",
       "url": "https://github.com/amkkoussay/cropguide-ai",
       "case": {
         "problem": "Plant apps look at one photo and announce a disease with confidence — a guess dressed as a diagnosis, which can push a farmer toward the wrong treatment.",
-        "solution": "Photo triage that first identifies the crop, then matches visible signs against a source-verified disease database (18 crops, 184 records), shows its evidence, and abstains — 'the photo does not give enough evidence' — when the signs are not conclusive.",
+        "solution": "Crop-first triage: Plant.id suggests the crop, Gemini Vision extracts only the symptom codes actually visible in the photo, and matches are checked against a knowledge base of 18 crops and 184 source-verified disease records. When the evidence is too thin, the app abstains instead of guessing.",
         "role": "Solo build — curated the verified knowledge base record by record and built the app around the abstention rule."
-      }
+      },
+      "title": "CropGuide"
     },
     {
       "desc": "Clinic management platform with a role-aware AI assistant, an integration API, and automated appointment emails.",
@@ -111,6 +121,7 @@
       "stack": [
         "Flask",
         "SQLite",
+        "Qwen",
         "FHIR",
         "n8n"
       ],
@@ -120,7 +131,8 @@
         "problem": "A small clinic runs patients, appointments and records across paper files and chat threads; nothing is searchable and reminders depend on memory.",
         "solution": "A clinic management platform: patients, appointments, medical records and billing with role-based access (admin, doctor, receptionist, patient), a FHIR-shaped REST API, an AI assistant whose tools are scoped to the caller's role, and n8n webhooks that fire booking confirmations and cancellations.",
         "role": "Solo build — Flask/SQLite platform, role-scoped chatbot tools and the n8n event integration, tested end-to-end live."
-      }
+      },
+      "title": "Clinique"
     },
     {
       "desc": "Full-stack health informatics and symptom-analysis application. Exploratory project.",
@@ -141,7 +153,8 @@
         "problem": "Symptom checkers rush to name a disease; for an Arabic speaker the options are worse — translated lists with no sense of urgency or safety.",
         "solution": "An Arabic-first health explainer (Nabd) that organizes what the user feels, explains what it may mean and what step comes next, puts safety signals first, and never claims a diagnosis.",
         "role": "Solo build — exploratory project; content structure and the safety-first interaction."
-      }
+      },
+      "title": "AI Health Assistant"
     },
     {
       "desc": "Geospatial exploration of how services and risk are distributed across places. Exploratory project.",
@@ -160,7 +173,8 @@
         "problem": "Unequal access to public services is easy to assert and hard to show; without spatial evidence it stays an opinion.",
         "solution": "A geospatial analysis of service coverage shipped as a full documentation package — evidence register, methodology, data lineage and a validation report — so every claim in it can be re-checked.",
         "role": "Solo research and build — exploratory / proof of concept."
-      }
+      },
+      "title": "Mapping Equity GeoAI"
     },
     {
       "desc": "A modular Flask application with a layered database and service architecture. Proof of concept.",
@@ -181,7 +195,8 @@
         "problem": "A small bakery tracks stock, purchasing and profit in notebooks; reordering is guesswork and losses surface weeks late.",
         "solution": "BakeryERP: inventory and purchasing with predictive reorder suggestions, profitability analytics, PDF/Excel exports and role-based access (admin, manager, cashier, customer); demo accounts are only ever seeded with explicit passwords, never defaults.",
         "role": "Solo build — Flask ERP with database migrations and a test suite."
-      }
+      },
+      "title": "BakeryERP (Pann)"
     }
   ],
   "talks": [],
@@ -192,7 +207,8 @@
       "when": "11/2026",
       "where": "Remote",
       "url": "https://github.com/pandas-dev/pandas/pull/71991",
-      "desc": "Merged PR #71991 — fixed pd.to_numeric(errors='coerce') on ArrowDtype strings: unparseable values were stored as float NaN instead of NA, and a parsed value could be duplicated next to a missing one. Reproduced first, fixed at the root cause, four regression tests added."
+      "desc": "Merged PR #71991 — fixed pd.to_numeric(errors='coerce') on ArrowDtype strings: unparseable values were stored as float NaN instead of NA, and a parsed value could be duplicated next to a missing one. Reproduced first, fixed at the root cause, four regression tests added.",
+      "kind": "oss"
     },
     {
       "title": "Open Source Contributor",
@@ -200,7 +216,8 @@
       "when": "11/2026",
       "where": "Remote",
       "url": "https://gitlab.com/wireshark/wireshark/-/merge_requests/28001",
-      "desc": "Merged MR !28001 — gave the asn2deb tool its .py extension. A change with zero lines of code that put my name in Wireshark's official AUTHORS file."
+      "desc": "Merged MR !28001 — gave the asn2deb tool its .py extension. A change with zero lines of code that put my name in Wireshark's official AUTHORS file.",
+      "kind": "oss"
     },
     {
       "title": "Open Source Contributor",
@@ -208,7 +225,8 @@
       "when": "11/2026",
       "where": "Remote",
       "url": "https://gitlab.com/gitlab-org/gitlab-shell/-/merge_requests/1664",
-      "desc": "Merged MR !1664 — gitlab-shell's parse-failure errors now carry the request context that caused them, closing issue #888. Survived a blocking maintainer review: his catch was in my own fix, and fixing that made the change right."
+      "desc": "Merged MR !1664 — gitlab-shell's parse-failure errors now carry the request context that caused them, closing issue #888. Survived a blocking maintainer review: his catch was in my own fix, and fixing that made the change right.",
+      "kind": "oss"
     },
     {
       "title": "Open Source Contributor",
@@ -216,7 +234,10 @@
       "when": "11/2026",
       "where": "Remote",
       "url": "https://github.com/MicrosoftDocs/azure-docs/pull/128901",
-      "desc": "Two merged PRs (#128901, #128902) — documentation fixes in the Azure Health Data Services and Blob Storage docs. My first merged contributions."
+      "desc": "Two merged PRs (#128901, #128902) — documentation fixes in the Azure Health Data Services and Blob Storage docs. My first merged contributions.",
+      "kind": "oss",
+      "url2": "https://github.com/MicrosoftDocs/azure-docs/pull/128902",
+      "url2label": " + #128902"
     },
     {
       "desc": "Built Mirsad, a shared memory hub for AI agents — an MCP server published on PyPI and running live on Cloudflare Workers + D1: bi-temporal facts, first-class decisions, and conflicts only the owner can resolve.",
@@ -224,22 +245,59 @@
       "title": "Creator",
       "url": "https://github.com/amkkoussay/Mersad",
       "when": "11/2026 – present",
-      "where": "Open source"
+      "where": "Open source",
+      "kind": "role"
     },
     {
-      "desc": "Published a narrative review on the robustness of AI clinical decision-support systems under unreliable patient data, proposing the CARE framework for when a system should abstain instead of deciding.",
+      "desc": "Sole-author narrative review of 15 studies (2018–2026) on when clinical decision-support systems should abstain under missing, noisy or contradictory patient data; proposes the CARE framework (not clinically validated). Published on Zenodo, CC-BY-4.0.",
       "org": "Zenodo",
-      "title": "Independent Researcher",
+      "title": "AI-Based Clinical Decision-Support System Robustness Under Unreliable Patient Data: A Narrative Review with Thematic Synthesis",
       "url": "https://doi.org/10.5281/zenodo.22883408",
       "when": "09/2026",
-      "where": "Tunisia"
+      "where": "Remote",
+      "kind": "research"
     },
     {
-      "desc": "Final-year computer-science track in high school (baccalaureate cycle 2027–2028), building applied-AI projects for health, agriculture and climate risk alongside school.",
-      "org": "Sciences de l'informatique",
-      "title": "Student",
-      "when": "2026 – present",
-      "where": "Tunisia"
+      "desc": "Baccalauréat cycle 2027–2028, computer-science track: programming, databases, networks and systems.",
+      "org": "Tunisia",
+      "title": "Sciences de l'informatique (4SI)",
+      "when": "2027–2028",
+      "where": "Tunisia",
+      "kind": "education"
     }
-  ]
+  ],
+  "cv": {
+    "lines": [
+      "# Koussay Mehdouani",
+      "Applied AI · Data Engineering · Open Source — Tunis, Tunisia",
+      "koussaymehdouani@gmail.com",
+      "",
+      "## Education",
+      "Sciences de l'informatique (4SI), Tunisia — Baccalauréat 2027–2028",
+      "",
+      "## Selected projects",
+      "MIRSAD — shared memory for AI agents: MCP server, PyPI mirsad-mcp 0.3.0, OpenSSF Best Practices Passing",
+      "Rain2Risk — relative flood-risk screening: rainfall 40 · slope 20 · elevation 15 · built-up 15 · water distance 10",
+      "CropGuide — plant-disease guidance with Plant.id + Gemini Vision; 18 crops, 184 source-verified records; abstains when unsure",
+      "Clinique — clinic platform with role-based access, a FHIR-shaped REST API and a role-scoped AI assistant (Qwen)",
+      "",
+      "## Open-source contributions (merged)",
+      "pandas — PR #71991: pd.to_numeric ArrowDtype coercion fix, with regression tests",
+      "Wireshark — MR !28001: asn2deb .py rename; name in the official AUTHORS file",
+      "GitLab gitlab-shell — MR !1664: request context in parse-failure errors (closes #888)",
+      "Microsoft azure-docs — PRs #128901 and #128902: documentation fixes",
+      "",
+      "## Research",
+      "AI-Based Clinical Decision-Support System Robustness Under Unreliable Patient Data — narrative review, Zenodo 2026, DOI 10.5281/zenodo.22883408",
+      "",
+      "## Security research",
+      "Credited on two GitHub Security Advisories: pydicom GHSA-2j9c-7f57-c9cw · browser-use GHSA-pgp3-m7wh-g93p",
+      "",
+      "## Skills",
+      "Python · JavaScript · HTML/CSS · SQL · Flask · SQLite · MCP · REST APIs · Git/GitHub",
+      "",
+      "## Languages",
+      "Arabic (native) · French (fluent) · English (intermediate)"
+    ]
+  }
 }

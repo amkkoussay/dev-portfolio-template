@@ -241,7 +241,7 @@ const projects = CONFIG.projects.map((p) => {
     xray: false,
   }));
   const lines = [
-    `# ${p.name}`,
+    `# ${p.title || p.name}`,
     "",
     ...images.slice(0, 1).map((_, i) => `\u0001IMG${i}\u0001`),
     "",
@@ -256,6 +256,7 @@ const projects = CONFIG.projects.map((p) => {
   ];
   return {
     repo: id,
+    title: p.title || p.name,
     url: p.url || null,
     description: p.desc,
     tag: p.tag || null,
@@ -395,6 +396,7 @@ write("site/content.json", {
   themeStats: {},
   themeThumbs,
   work: CONFIG.work || [],
+  cv: CONFIG.cv || null,
   talks: CONFIG.talks || [],
   links: CONFIG.links || [],
   more: MORE,

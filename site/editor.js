@@ -139,14 +139,18 @@ const about = (() => {
 
 const MORE = new Set(content.more || []);
 const OMARCHY = new Set();
-const projectEntries = content.projects.map((project) => ({ id: project.repo, label: project.repo, kind: "project", data: project, parent: MORE.has(project.repo) ? "more" : OMARCHY.has(project.repo) ? "omarchy" : null }));
+const projectEntries = content.projects.map((project) => ({ id: project.repo, label: project.title || project.repo, kind: "project", data: project, parent: MORE.has(project.repo) ? "more" : OMARCHY.has(project.repo) ? "omarchy" : null }));
 const children = projectEntries.filter((entry) => entry.parent);
 const childrenOf = (id) => children.filter((entry) => entry.parent === id);
 const shipped = themes.filter((theme) => theme.included);
 const entries = [
   { id: "about", label: "whoami", kind: "about", tile: "about" },
   ...projectEntries.filter((entry) => !entry.parent),
-  { id: "work", label: "work/", kind: "work", tile: "work" },
+  ...((content.work || []).some((i) => (i.kind || "role") === "role") ? [{ id: "work", label: "work/", kind: "work", tile: "work" }] : []),
+  ...((content.work || []).some((i) => i.kind === "oss") ? [{ id: "opensource", label: "opensource/", kind: "oss", tile: "work" }] : []),
+  ...((content.work || []).some((i) => i.kind === "research") ? [{ id: "research", label: "research/", kind: "research", tile: "work" }] : []),
+  ...((content.work || []).some((i) => i.kind === "education") ? [{ id: "education", label: "education/", kind: "education", tile: "work" }] : []),
+  ...(content.cv ? [{ id: "cv", label: "cv", kind: "cv", tile: "work" }] : []),
   ...((content.talks || []).length ? [{ id: "talks", label: "talks/", kind: "talks", tile: "talks" }] : []),
   ...(childrenOf("more").length ? [{ id: "more", label: "more/", kind: "more" }] : []),
   ...(stack ? [{ id: "stack", label: "stack/", kind: "stack", tile: "stack" }] : []),
@@ -468,19 +472,39 @@ function triptych(files) {
 }
 
 const WHEN_W = 24;
-function workSpec() {
-  const list = content.work || [];
-  const jobs = list.filter((item) => item.kind !== "talk");
-  const out = list.filter((item) => item.kind !== "talk").flatMap((item) => [
-    { segments: [[item.when.padEnd(WHEN_W), "t-dim"], item.url ? [item.title, "", item.url] : [item.title, "t-key"], ...(item.org ? [["  @ " + item.org, "t-dim"]] : []), ...(item.where ? [["  · " + item.where, "t-dim"]] : [])] },
+function workSpec(kind = "role") {
+  const list = (content.work || []).filter((item) => (item.kind || "role") === kind);
+  const dir = kind === "oss" ? "opensource" : kind === "role" ? "work" : kind;
+  const facts =
+    kind === "oss"
+      ? [fact("merged", list.length), fact("orgs", [...new Set(list.map((i) => i.org))].length)]
+      : kind === "research"
+        ? [fact("papers", list.length)]
+        : kind === "education"
+          ? [fact("cycle", "2027–2028")]
+          : [fact("entries", list.length)];
+  const out = list.flatMap((item) => [
+    { segments: [[item.when.padEnd(WHEN_W), "t-dim"], item.url ? [item.title, "", item.url] : [item.title, "t-key"], ...(item.url2 ? [[item.url2label || " + link", "", item.url2]] : []), ...(item.org ? [["  @ " + item.org, "t-dim"]] : []), ...(item.where ? [["  · " + item.where, "t-dim"]] : [])] },
     { segments: [[" ".repeat(WHEN_W)], [item.desc || ""]], className: "t-hang" },
   ]);
   return {
-    cwd: "~/work",
+    cwd: `~/${dir}`,
     branch: null,
     blocks: [
-      { cmd: "fetch work/", out: [fact("entries", jobs.length), fact("programs", jobs.filter((item) => /summer of|google summer/i.test(item.title)).length)] },
-      { cmd: "git log --format='%ad  %s' work/", out },
+      { cmd: `fetch ${dir}/`, out: facts },
+      { cmd: `git log --format='%ad  %s' ${dir}/`, out },
+    ],
+  };
+}
+
+function cvSpec() {
+  const lines = content.cv?.lines || [];
+  return {
+    cwd: "~/cv",
+    branch: null,
+    blocks: [
+      { cmd: "cat cv.md", out: lines.map((line) => ({ segments: [line], className: line.startsWith("#") ? "t-key" : "t-dim" })) },
+      { cmd: "ls -l cv.pdf", out: [{ segments: [["-rw-r--r--  1 koussay  staff   ", "t-dim"], ["cv.pdf — view / download", "", "/cv.pdf"]] }] },
     ],
   };
 }
@@ -555,7 +579,9 @@ function moreSpec() {
 }
 
 function textOf(entry) {
-  if (entry.kind === "work") return (content.work || []).map((item) => `${item.title} ${item.org || ""} ${item.desc || ""}`).join(" ");
+  if (entry.kind === "work") return (content.work || []).filter((item) => (item.kind || "role") === "role").map((item) => `${item.title} ${item.org || ""} ${item.desc || ""}`).join(" ");
+  if (entry.kind === "oss" || entry.kind === "research" || entry.kind === "education") return (content.work || []).filter((item) => item.kind === entry.kind).map((item) => `${item.title} ${item.org || ""} ${item.desc || ""}`).join(" ");
+  if (entry.kind === "cv") return (content.cv?.lines || []).join(" ");
   if (entry.kind === "talks") return (content.talks || []).map((item) => `${item.name} ${item.place} ${item.desc || ""}`).join(" ");
   if (entry.kind === "more") return childrenOf("more").map((child) => `${child.data.repo} ${child.data.description || ""}`).join(" ");
   if (entry.kind === "project") return [entry.data.repo, entry.data.description, entry.data.language, entry.data.lines.join(" ")].join(" ");
@@ -570,7 +596,11 @@ function barView(entry) {
     return [["STARS", fmt(p.stars)], ["FORKS", fmt(p.forks)], ["WATCH", fmt(p.watchers)]];
   }
   if (entry.kind === "themes") return [["THEMES", String(themes.length)], ["BUILT-IN", String(themes.filter((theme) => theme.included).length)]];
-  if (entry.kind === "work") return [["ROLES", String((content.work || []).filter((item) => item.kind !== "talk").length)], ["SINCE", "2021"], ["NOW", "ALBY"]];
+  if (entry.kind === "work") return [["ROLES", String((content.work || []).filter((item) => (item.kind || "role") === "role").length)]];
+  if (entry.kind === "oss") { const l = (content.work || []).filter((item) => item.kind === "oss"); return [["MERGED", String(l.length)], ["ORGS", String(new Set(l.map((i) => i.org)).size)]]; }
+  if (entry.kind === "research") return [["PAPERS", String((content.work || []).filter((item) => item.kind === "research").length)]];
+  if (entry.kind === "education") return [["BAC", "2028"]];
+  if (entry.kind === "cv") return [["FORMAT", "PDF"], ["PAGES", "1"]];
   if (entry.kind === "talks") { const list = content.talks || []; return [["TALKS", String(list.length)], ["PLACES", String(new Set(list.map((talk) => talk.place.split(", ").pop())).size)]]; }
   if (entry.kind === "more") return [["PROJECTS", String(childrenOf("more").length)]];
   if (entry.kind === "stack") return [["LANGS", String((stack.languages ?? []).length)], ["TOOLS", String((stack.tools ?? []).length)], ["AI", String(stack.ai?.length ?? 0)]];
@@ -612,7 +642,19 @@ function open(entry) {
     const orgs = (content.work || []).map((w) => w.org).filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).slice(0, 4);
     winbar.textContent = orgs.length ? `work/ — ${orgs.join(" · ")}` : "work/";
     tabFile.textContent = "/work/";
-    terminal.show(workSpec());
+    terminal.show(workSpec("role"));
+    cleanup = () => terminal.destroy();
+  } else if (entry.kind === "oss" || entry.kind === "research" || entry.kind === "education") {
+    const dir = entry.kind === "oss" ? "opensource" : entry.kind;
+    const n = (content.work || []).filter((i) => i.kind === entry.kind).length;
+    winbar.textContent = entry.kind === "oss" ? `opensource/ — ${n} merged` : entry.kind === "research" ? `research/ — ${n} paper${n === 1 ? "" : "s"}` : "education/";
+    tabFile.textContent = `/${dir}/`;
+    terminal.show(workSpec(entry.kind));
+    cleanup = () => terminal.destroy();
+  } else if (entry.kind === "cv") {
+    winbar.textContent = "cv — Koussay Mehdouani";
+    tabFile.textContent = "/cv";
+    terminal.show(cvSpec());
     cleanup = () => terminal.destroy();
   } else if (entry.kind === "talks") {
     winbar.textContent = `talks/ — ${(content.talks || []).length} talks`;
