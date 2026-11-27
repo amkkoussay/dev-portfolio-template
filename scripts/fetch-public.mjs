@@ -155,6 +155,36 @@ for (let d = new Date(firstDay + "T00:00:00Z"); d <= new Date(lastDay + "T00:00:
   days.push({ date: ds, count: c, level: level(c) });
 }
 const total = [...dayCounts.values()].reduce((s, n) => s + n, 0);
+// ---------- per-repo facts for the config's projects ----------
+// build-data.mjs reads these from the snapshot when the gh CLI is
+// unavailable, so per-project stats survive offline builds instead of
+// rendering as zeros.
+async function apiHead(url) {
+  const r = await fetch(url, { headers: { "User-Agent": "dev-portfolio-template/fetch-public", Accept: "application/vnd.github+json" } });
+  if (r.status === 403 || r.status === 429) {
+    console.error(`fetch-public: GitHub rate limit hit at ${url}. Unauthenticated REST is ~60 req/hour per IP \u2014 wait and retry.`);
+    process.exit(2);
+  }
+  if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+  return { json: await r.json(), link: r.headers.get("link") || "" };
+}
+const repoFactsMap = {};
+for (const p of CONFIG.projects || []) {
+  const full = p.githubRepo || (p.url?.startsWith("https://github.com/") ? p.url.replace("https://github.com/", "").replace(/\/$/, "") : null);
+  if (!full) continue;
+  const r = await api(`https://api.github.com/repos/${full}`);
+  const { link } = await apiHead(`https://api.github.com/repos/${full}/commits?per_page=1`);
+  const m = link.match(/page=(\d+)>; rel="last"/);
+  const tree = await api(`https://api.github.com/repos/${full}/git/trees/${r.default_branch}?recursive=1`).catch(() => null);
+  repoFactsMap[full] = {
+    stars: r.stargazers_count, forks: r.forks_count,
+    watchers: r.subscribers_count ?? r.watchers_count,
+    issues: r.open_issues_count, license: r.license?.spdx_id ?? null,
+    language: r.language, pushed: r.pushed_at.slice(0, 10), created: r.created_at.slice(0, 10),
+    branch: r.default_branch, commits: m ? Number(m[1]) : 1,
+    files: tree?.tree?.filter((n) => n.type === "blob").length ?? null,
+  };
+}
 write("github-snapshot.json", {
   account: USER,
   followers: user.followers,
@@ -170,6 +200,7 @@ write("github-snapshot.json", {
     source: "Public GitHub events via REST API (events window only — GitHub retains ~90 days / 300 events)",
     days,
   },
+  repos: repoFactsMap,
   sources: ["GitHub REST API — public profile, repositories, languages, events (fetch-public)"],
   fetchedAt: iso,
 });

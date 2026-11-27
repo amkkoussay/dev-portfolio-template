@@ -1,3 +1,9 @@
+## 1.2.1 — 2026-11-27
+
+- Fixed per-project stats rendering as zeros after offline builds: fetch-public now collects per-repo facts (stars, forks, watchers, commits, files) into github-snapshot.json, and build-data falls back to them when the gh CLI is unavailable.
+- SEO/social: name-and-role page titles, rewritten meta descriptions, Open Graph and Twitter cards.
+- Added `:root { color-scheme: dark; }`, robots.txt and sitemap.xml.
+
 # Changelog
 
 ## 1.2.0 — 2026-11-26

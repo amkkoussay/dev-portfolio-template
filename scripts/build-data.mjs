@@ -193,8 +193,10 @@ const ghTry = (...args) => { try { return gh(...args); } catch { return null; } 
 const ghRaw = (url) => execFileSync("gh", ["api", url, "-H", "Accept: application/vnd.github.raw"], { encoding: "utf8", maxBuffer: 1 << 26 });
 const gql = (query) => gh("graphql", "-f", `query=${query}`).data;
 
+const SNAPSHOT_REPOS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, "github-snapshot.json"), "utf8")).repos || {}; } catch { return {}; } })();
 function repoFacts(full) {
-  if (!FETCH_GH || !full) return {};
+  if (!full) return {};
+  if (!FETCH_GH) return SNAPSHOT_REPOS[full] ? { ...SNAPSHOT_REPOS[full] } : {};
   const r = ghTry(`repos/${full}`);
   if (!r) return {};
   let commits = null;

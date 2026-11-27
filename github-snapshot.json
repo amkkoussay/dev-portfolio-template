@@ -268,5 +268,98 @@
  "sources": [
   "GitHub REST API — public profile, repositories, languages, events (fetch-public)"
  ],
- "fetchedAt": "2026-11-26T20:28:27.174Z"
+ "fetchedAt": "2026-11-26T20:28:27.174Z",
+ "repos": {
+  "amkkoussay/Mersad": {
+   "stars": 13,
+   "forks": 0,
+   "watchers": 0,
+   "issues": null,
+   "license": "MIT",
+   "pushed": "2026-11-23",
+   "created": null,
+   "branch": "main",
+   "commits": 68,
+   "files": 39,
+   "language": "Python"
+  },
+  "amkkoussay/rain2risk": {
+   "stars": 1,
+   "forks": 0,
+   "watchers": 0,
+   "issues": null,
+   "license": "MIT",
+   "pushed": "2026-11-20",
+   "created": null,
+   "branch": "main",
+   "commits": 28,
+   "files": 84,
+   "language": "Python"
+  },
+  "amkkoussay/cropguide-ai": {
+   "stars": 1,
+   "forks": 0,
+   "watchers": 0,
+   "issues": null,
+   "license": null,
+   "pushed": "2026-11-20",
+   "created": null,
+   "branch": "main",
+   "commits": 38,
+   "files": 121,
+   "language": "JavaScript"
+  },
+  "amkkoussay/clinique": {
+   "stars": 1,
+   "forks": 0,
+   "watchers": 0,
+   "issues": null,
+   "license": "MIT",
+   "pushed": "2026-11-20",
+   "created": null,
+   "branch": "main",
+   "commits": 8,
+   "files": 136,
+   "language": "Flask"
+  },
+  "amkkoussay/ai-health-assistant": {
+   "stars": 1,
+   "forks": 0,
+   "watchers": 0,
+   "issues": null,
+   "license": null,
+   "pushed": "2026-11-20",
+   "created": null,
+   "branch": "main",
+   "commits": 9,
+   "files": 40,
+   "language": "JavaScript"
+  },
+  "amkkoussay/mapping-equity-geoai": {
+   "stars": 0,
+   "forks": 0,
+   "watchers": 0,
+   "issues": null,
+   "license": null,
+   "pushed": "2026-10-29",
+   "created": null,
+   "branch": "main",
+   "commits": 14,
+   "files": 28,
+   "language": "Python"
+  },
+  "amkkoussay/Pann": {
+   "stars": 1,
+   "forks": 0,
+   "watchers": 0,
+   "issues": null,
+   "license": null,
+   "pushed": "2026-11-20",
+   "created": null,
+   "branch": "main",
+   "commits": 5,
+   "files": 32,
+   "language": "Python"
+  }
+ }
 }
