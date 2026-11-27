@@ -1,3 +1,7 @@
+## 1.7.2 — 2026-11-27
+
+- The intro exit animation is back in full: the anti-stall fallback added in 1.7.1 fired at 900 ms and cut the leave sequence (lid, character morph, zoom) short. The fallback is now 4.5 s — safely beyond the animation's own ~3.4 s — so it only ever rescues a genuinely stalled tab.
+
 ## 1.7.1 — 2026-11-27
 
 - Fixed a crash that froze the `more/` section on the previous panel: the month formatter now tolerates a missing date, and project `created` dates are actually populated (first-commit dates recorded in the snapshot and config), so `since` renders real months everywhere.
