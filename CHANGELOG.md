@@ -1,3 +1,8 @@
+## 1.6.0 — 2026-11-27
+
+- Reduced motion, completed: the intro's JS already rendered a static wall under `prefers-reduced-motion` (verified: identical frames), and the editor had its own block — the missing piece was the intro stylesheet, which now disables all transitions/animations under the same setting.
+- Touch targets: audited every interactive element — brand, switch, enter and the wheel tiles were already ≥44px; the two that were not are fixed on coarse pointers: the intro's `:theme` key hit area grows to ~45px tall (padding + negative margin, label unmoved) and the editor's den toggle becomes 44×44.
+
 ## 1.5.0 — 2026-11-27
 
 - Identity slots lead with the owner's name, not the domain: header brand, page titles, sr-only headings and meta descriptions are name-based (baked by syncIdentity).

@@ -323,3 +323,19 @@ body {
     right: 8px;
   }
 }
+/* reduced motion: the intro's JS already renders a static wall (prefersStill);
+   this kills the remaining CSS transitions/animations under the same setting */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* touch: grow the :theme key's hit area to ~44px without moving its label */
+@media (pointer: coarse) {
+  .theme-key {
+    padding: 16px 12px;
+    margin: -16px -12px;
+  }
+}
