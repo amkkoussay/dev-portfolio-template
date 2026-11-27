@@ -285,7 +285,7 @@ function refit() {
 const pad = (label) => label.padEnd(9);
 const num = (value) => fmt(value).padStart(6);
 const fact = (label, value, extra = []) => ({ segments: [[pad(label), "t-key"], [num(value), "md-num"], ...extra] });
-const month = (iso) => iso.slice(0, 7);
+const month = (iso) => (iso ? iso.slice(0, 7) : "—");
 
 function starShare(stars) {
   const total = snapshot.stars?.total || 0;
@@ -390,12 +390,12 @@ function stackSpec() {
   const cols = narrow.matches ? 2 : 3;
   const unit = (l) => ` repo${l.repos === 1 ? "" : "s"}`;
   const used = Math.max(0, ...(stack.languages ?? []).map((l) => 3 + Math.max(11, l.name.length) + 4 + unit(l).length));
-  const lang = (stack.languages ?? []).map((l) => ({ segments: [{ icon: l.icon, letter: l.name }, " ", [l.name.padEnd(11), "md-code"], ...gauge(l.repos / stack.repos, used), [String(l.repos).padStart(4), "md-num"], [unit(l), "t-dim"]] }));
+  const lang = (stack.languages ?? []).map((l) => ({ segments: [...(l.icon ? [{ icon: l.icon, letter: l.name }, " "] : []), [l.name.padEnd(11), "md-code"], ...gauge(l.repos / stack.repos, used), [String(l.repos).padStart(4), "md-num"], [unit(l), "t-dim"]] }));
   const grid = (list, width) => {
     const rows = [];
     for (let k = 0; k < list.length; k += cols) {
       rows.push({
-        segments: list.slice(k, k + cols).flatMap((tool, j) => [...(j ? ["  "] : []), { icon: tool.icon, letter: tool.name }, " ", [tool.name.padEnd(width)], [String(tool.repos ?? "").padStart(3), "md-num"]]),
+        segments: list.slice(k, k + cols).flatMap((tool, j) => [...(j ? ["  "] : []), ...(tool.icon ? [{ icon: tool.icon, letter: tool.name }, " "] : []), [tool.name.padEnd(width)], [String(tool.repos ?? "").padStart(3), "md-num"]]),
       });
     }
     return rows;
@@ -410,7 +410,7 @@ function stackSpec() {
         out: [...grid(stack.tools ?? [], 12), { segments: ["numbers: repos with evidence (files, topics, names)"], className: "t-dim" }],
       },
       ...(stack.ai?.length ? [{ cmd: "stack --ai-tools", out: [...grid(stack.ai, 12), { segments: ["listed by the owner"], className: "t-dim" }] }] : []),
-      { cmd: "stack --site", out: (stack.site ?? []).map((tool) => ({ segments: [{ icon: tool.icon, letter: tool.name }, " ", [tool.name.padEnd(20)], [tool.via, "t-dim"]] })) },
+      { cmd: "stack --site", out: (stack.site ?? []).map((tool) => ({ segments: [...(tool.icon ? [{ icon: tool.icon, letter: tool.name }, " "] : []), [tool.name.padEnd(20)], [tool.via, "t-dim"]] })) },
       calendarBlock(),
     ],
   };
@@ -603,7 +603,7 @@ function barView(entry) {
   if (entry.kind === "cv") return [["FORMAT", "PDF"], ["PAGES", "1"]];
   if (entry.kind === "talks") { const list = content.talks || []; return [["TALKS", String(list.length)], ["PLACES", String(new Set(list.map((talk) => talk.place.split(", ").pop())).size)]]; }
   if (entry.kind === "more") return [["PROJECTS", String(childrenOf("more").length)]];
-  if (entry.kind === "stack") return [["LANGS", String((stack.languages ?? []).length)], ["TOOLS", String((stack.tools ?? []).length)], ["AI", String(stack.ai?.length ?? 0)]];
+  if (entry.kind === "stack") { const pairs = [["LANGS", String((stack.languages ?? []).length)], ["TOOLS", String((stack.tools ?? []).length)]]; if (stack.ai?.length) pairs.push(["AI", String(stack.ai.length)]); return pairs; }
   return [["REPOS", fmt(snapshot.stars.repositoryCount)], ["STARS", fmt(snapshot.stars.total)], ["FOLLOWERS", fmt(snapshot.followers)]];
 }
 

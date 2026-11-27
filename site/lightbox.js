@@ -110,7 +110,7 @@ export function createLightbox({ onOpen = () => {} } = {}) {
 
   function caption() {
     const item = s.items[s.at];
-    fill(left, [...item.left, ...(narrow.matches || !s.exact ? [] : [[` · ${s.size[0]}×${s.size[1]}`]])]);
+    fill(left, [...item.left, ...(narrow.matches || !s.exact ? [] : [[` · ${s.size[0]}×${s.size[1]}`]]), ["  "]]);
     fill(right, item.right);
     root.setAttribute("aria-label", item.alt || "image");
   }

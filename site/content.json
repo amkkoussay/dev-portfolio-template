@@ -1,6 +1,6 @@
 {
  "owner": "amkkoussay",
- "fetchedAt": "2026-11-27T15:33:15.713Z",
+ "fetchedAt": "2026-11-27T15:44:57.403Z",
  "about": {
   "repo": "amkkoussay",
   "lines": [
@@ -12,6 +12,7 @@
    "",
    "Open to research collaborations and open-source work. Reach me on LinkedIn or by email: koussaymehdouani@gmail.com",
    "",
+   "[Email](mailto:koussaymehdouani@gmail.com)",
    "[GitHub](https://github.com/amkkoussay)",
    "[LinkedIn](https://www.linkedin.com/in/koussay-mehdouani-45560a389)",
    "[Blog](https://dev.to/koussay_mehdouani_0edec78)",
@@ -33,7 +34,7 @@
    "watchers": 0,
    "issues": null,
    "license": "MIT",
-   "created": null,
+   "created": "2026-11-13",
    "branch": "main",
    "commits": 68,
    "files": 39,
@@ -89,7 +90,7 @@
    "watchers": 0,
    "issues": null,
    "license": "MIT",
-   "created": null,
+   "created": "2026-09-27",
    "branch": "main",
    "commits": 28,
    "files": 84,
@@ -145,7 +146,7 @@
    "watchers": 0,
    "issues": null,
    "license": null,
-   "created": null,
+   "created": "2026-08-01",
    "branch": "main",
    "commits": 38,
    "files": 121,
@@ -200,7 +201,7 @@
    "watchers": 0,
    "issues": null,
    "license": "MIT",
-   "created": null,
+   "created": "2026-08-05",
    "branch": "main",
    "commits": 8,
    "files": 136,
@@ -257,7 +258,7 @@
    "watchers": 0,
    "issues": null,
    "license": null,
-   "created": null,
+   "created": "2026-08-14",
    "branch": "main",
    "commits": 9,
    "files": 40,
@@ -310,7 +311,7 @@
    "watchers": 0,
    "issues": null,
    "license": null,
-   "created": null,
+   "created": "2026-10-26",
    "branch": "main",
    "commits": 14,
    "files": 28,
@@ -354,7 +355,7 @@
    "watchers": 0,
    "issues": null,
    "license": null,
-   "created": null,
+   "created": "2026-07-28",
    "branch": "main",
    "commits": 5,
    "files": 32,
@@ -391,6 +392,61 @@
     "Built with Python · Flask",
     "",
     "[Visit](https://github.com/amkkoussay/Pann)"
+   ]
+  },
+  {
+   "repo": "bakery-erp-pro",
+   "title": "BakeryERP Pro",
+   "url": "https://github.com/amkkoussay/bakery-erp-pro",
+   "description": "Bakery operations suite: point of sale, inventory, production, purchasing and online orders in one system.",
+   "tag": "Flask · ERP",
+   "stars": null,
+   "language": "Python",
+   "pushed": "2026-10-28",
+   "forks": null,
+   "watchers": null,
+   "issues": null,
+   "license": null,
+   "created": "2026-07-30",
+   "branch": "main",
+   "commits": 76,
+   "files": 64,
+   "counts": {},
+   "github": "https://github.com/amkkoussay/bakery-erp-pro",
+   "stack": [
+    "Python",
+    "Flask",
+    "SQLite"
+   ],
+   "case": {
+    "problem": "A bakery runs sales, stock and production on paper and scattered sheets; nothing connects what was sold to what must be baked or bought.",
+    "solution": "One operations system: point of sale, inventory driven by bills of materials, production and purchasing orders, online orders, and reports for profitability, waste and inventory prediction.",
+    "role": "Solo design and build — Flask blueprints, service/repository modules, SQL schema and migrations."
+   },
+   "images": [
+    {
+     "file": "shots/bakery-erp-pro.png",
+     "source": "shots/bakery-erp-pro.png",
+     "alt": "bakery-erp-pro screenshot 1",
+     "xray": false
+    }
+   ],
+   "lines": [
+    "# BakeryERP Pro",
+    "",
+    "\u0001IMG0\u0001",
+    "",
+    "### Bakery operations suite: point of sale, inventory, production, purchasing and online orders in one system.",
+    "",
+    "A Flask and SQLite application for bakery operations — point of sale,",
+    "inventory with bills of materials, production orders, purchasing and",
+    "supplier records, online ordering, and profitability, waste and",
+    "inventory-prediction reports. Built with feature blueprints and a",
+    "service/repository layout over hand-written SQL.",
+    "",
+    "Built with Python · Flask · SQLite",
+    "",
+    "[Visit](https://github.com/amkkoussay/bakery-erp-pro)"
    ]
   }
  ],
@@ -857,6 +913,7 @@
  "more": [
   "ai-health-assistant",
   "mapping-equity-geoai",
-  "pann"
+  "pann",
+  "bakery-erp-pro"
  ]
 }

@@ -267,7 +267,7 @@ const projects = CONFIG.projects.map((p) => {
     watchers: facts.watchers ?? null,
     issues: facts.issues ?? null,
     license: facts.license ?? null,
-    created: facts.created ?? null,
+    created: facts.created ?? p.created ?? null,
     branch: facts.branch ?? "main",
     commits: facts.commits ?? null,
     files: facts.files ?? null,
@@ -383,7 +383,7 @@ const aboutLines = [
   ...(CONFIG.about.extra ? ["", CONFIG.about.extra] : []),
   ...(CONFIG.about.cta ? ["", CONFIG.about.cta] : []),
   "",
-  ...CONFIG.links.filter((l) => !l.url.startsWith("mailto:")).map((l) => `[${l.label}](${l.url})`),
+  ...CONFIG.links.map((l) => `[${l.label}](${l.url})`),
 ];
 const about = { repo: OWNER, lines: aboutLines };
 const themeThumbs = Object.fromEntries(themes.map((t) => [t.slug, `assets/themes/${t.slug}.svg`]));

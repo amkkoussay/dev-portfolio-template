@@ -44,7 +44,7 @@ export function createArchive(host, themes, { stats = {}, thumbs = {}, current =
       const li = make("li");
       const button = make("button", "arc-card");
       button.type = "button";
-      button.setAttribute("aria-label", `${theme.name}. ${theme.description}.${theme.included ? " Ships with Omarchy." : ""}`);
+      button.setAttribute("aria-label", `${theme.name}. ${theme.description}.${theme.included ? " Built-in theme." : ""}`);
       button.setAttribute("aria-pressed", "false");
       const img = make("img");
       img.src = thumbs[theme.slug] || theme.image;

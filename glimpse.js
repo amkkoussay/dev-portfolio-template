@@ -4071,6 +4071,7 @@ async function leave(href) {
   hideCursor();
   cmdSay("");
   document.documentElement.classList.add("is-leaving");
+  setTimeout(() => { window.location.href = href; }, 900);
   const now = performance.now();
   if (!tile) {
     open(now, chooseTile([wall.width / 2, wall.height / 2]) || centeredTile());

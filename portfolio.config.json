@@ -61,7 +61,8 @@
         "solution": "A shared memory hub with bi-temporal facts (every value keeps its validity window), first-class Decision units that store reasons, evidence and rejected alternatives, and a conflict queue where a challenged fact stays pending until the owner rules. Ships as an MCP server (13 tools) with a live graph viewer and a PyPI package; also deployed on Cloudflare Workers + D1.",
         "role": "Designed and built solo — core engine, MCP server, viewer, deployment and the release process."
       },
-      "title": "MIRSAD"
+      "title": "MIRSAD",
+      "created": "2026-11-13"
     },
     {
       "desc": "Relative flood-risk screening with a transparent weighted model — built for screening, not prediction.",
@@ -85,7 +86,8 @@
         "solution": "Five weighted factors — rainfall 40%, slope 20%, elevation 15%, built-up share 15%, distance to water 10% — computed per map cell from OpenWeather rainfall and Open-Meteo terrain, exactly as documented in the README. The ESA WorldCover land-cover layer is currently unavailable in production and is shown as unavailable, never guessed.",
         "role": "Solo build — scoring backend, methodology write-up and the Leaflet map frontend."
       },
-      "title": "Rain2Risk"
+      "title": "Rain2Risk",
+      "created": "2026-09-27"
     },
     {
       "desc": "Plant-disease guidance backed by a source-verified knowledge base: 18 crops, 184 verified disease records.",
@@ -108,7 +110,8 @@
         "solution": "Crop-first triage: Plant.id suggests the crop, Gemini Vision extracts only the symptom codes actually visible in the photo, and matches are checked against a knowledge base of 18 crops and 184 source-verified disease records. When the evidence is too thin, the app abstains instead of guessing.",
         "role": "Solo build — curated the verified knowledge base record by record and built the app around the abstention rule."
       },
-      "title": "CropGuide"
+      "title": "CropGuide",
+      "created": "2026-08-01"
     },
     {
       "desc": "Clinic management platform with a role-aware AI assistant, an integration API, and automated appointment emails.",
@@ -132,7 +135,8 @@
         "solution": "A clinic management platform: patients, appointments, medical records and billing with role-based access (admin, doctor, receptionist, patient), a FHIR-shaped REST API, an AI assistant whose tools are scoped to the caller's role, and n8n webhooks that fire booking confirmations and cancellations.",
         "role": "Solo build — Flask/SQLite platform, role-scoped chatbot tools and the n8n event integration, tested end-to-end live."
       },
-      "title": "Clinique"
+      "title": "Clinique",
+      "created": "2026-08-05"
     },
     {
       "desc": "Full-stack health informatics and symptom-analysis application. Exploratory project.",
@@ -154,7 +158,8 @@
         "solution": "An Arabic-first health explainer (Nabd) that organizes what the user feels, explains what it may mean and what step comes next, puts safety signals first, and never claims a diagnosis.",
         "role": "Solo build — exploratory project; content structure and the safety-first interaction."
       },
-      "title": "AI Health Assistant"
+      "title": "AI Health Assistant",
+      "created": "2026-08-14"
     },
     {
       "desc": "Geospatial exploration of how services and risk are distributed across places. Exploratory project.",
@@ -174,7 +179,8 @@
         "solution": "A geospatial analysis of service coverage shipped as a full documentation package — evidence register, methodology, data lineage and a validation report — so every claim in it can be re-checked.",
         "role": "Solo research and build — exploratory / proof of concept."
       },
-      "title": "Mapping Equity GeoAI"
+      "title": "Mapping Equity GeoAI",
+      "created": "2026-10-26"
     },
     {
       "desc": "A modular Flask application with a layered database and service architecture. Proof of concept.",
@@ -196,7 +202,32 @@
         "solution": "BakeryERP: inventory and purchasing with predictive reorder suggestions, profitability analytics, PDF/Excel exports and role-based access (admin, manager, cashier, customer); demo accounts are only ever seeded with explicit passwords, never defaults.",
         "role": "Solo build — Flask ERP with database migrations and a test suite."
       },
-      "title": "BakeryERP (Pann)"
+      "title": "BakeryERP (Pann)",
+      "created": "2026-07-28"
+    },
+    {
+      "name": "bakery-erp-pro",
+      "title": "BakeryERP Pro",
+      "githubRepo": "amkkoussay/bakery-erp-pro",
+      "url": "https://github.com/amkkoussay/bakery-erp-pro",
+      "desc": "Bakery operations suite: point of sale, inventory, production, purchasing and online orders in one system.",
+      "long": "A Flask and SQLite application for bakery operations — point of sale, inventory with bills of materials, production orders, purchasing and supplier records, online ordering, and profitability, waste and inventory-prediction reports. Built with feature blueprints and a service/repository layout over hand-written SQL.",
+      "more": true,
+      "stack": [
+        "Python",
+        "Flask",
+        "SQLite"
+      ],
+      "tag": "Flask · ERP",
+      "created": "2026-07-30",
+      "shots": [
+        "shots/bakery-erp-pro.png"
+      ],
+      "case": {
+        "problem": "A bakery runs sales, stock and production on paper and scattered sheets; nothing connects what was sold to what must be baked or bought.",
+        "solution": "One operations system: point of sale, inventory driven by bills of materials, production and purchasing orders, online orders, and reports for profitability, waste and inventory prediction.",
+        "role": "Solo design and build — Flask blueprints, service/repository modules, SQL schema and migrations."
+      }
     }
   ],
   "talks": [],

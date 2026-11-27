@@ -1,3 +1,14 @@
+## 1.7.1 — 2026-11-27
+
+- Fixed a crash that froze the `more/` section on the previous panel: the month formatter now tolerates a missing date, and project `created` dates are actually populated (first-commit dates recorded in the snapshot and config), so `since` renders real months everywhere.
+- Intro: leaving for /site/ no longer depends on the exit animation completing — a hard 900 ms fallback navigates regardless (background or throttled tabs included).
+- Removed the template residue "Ships with Omarchy" from theme descriptions.
+- The stack bar no longer shows an `AI 0` counter when no AI tools are listed; language/tool rows only draw a letter tile when they have no icon… (icon-less rows now show just the name).
+- Lightbox caption: the size and the key hints can no longer run together in extracted text.
+- whoami `ls links/` now includes the email link (mailto links are kept in the link list).
+- New project: BakeryERP Pro (bakery-erp-pro) joins `more/` with its dashboard screenshot and case study.
+- Shorter document title so search results stop truncating it.
+
 ## 1.7.0 — 2026-11-27
 
 - Work split into focused sections: `work/` (roles), `opensource/` (merged contributions, with per-item second links — e.g. both Azure PRs), `research/` (publications with DOI links) and `education/`; each renders only when it has items, with honest derived stats (the fabricated "SINCE 2021 / NOW ALBY" bar values are gone).
