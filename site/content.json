@@ -1,6 +1,6 @@
 {
  "owner": "amkkoussay",
- "fetchedAt": "2026-11-28T14:36:13.585Z",
+ "fetchedAt": "2026-11-28T16:04:37.991Z",
  "about": {
   "repo": "amkkoussay",
   "lines": [
@@ -373,10 +373,18 @@
     "result": "Shipped as a complete competition package: inventory, provenance register, validation report and claims register — and the Zindi submissions proof PDF sits in the repo, hash-matched to the package manifest.",
     "learned": "A figure you cannot point to evidence for is a claim, not a result. Every number in the package names the file it came from."
    },
-   "images": [],
+   "images": [
+    {
+     "file": "shots/mapping-equity-geoai.png",
+     "source": "shots/mapping-equity-geoai.png",
+     "alt": "Mapping Equity GeoAI screenshot 1",
+     "xray": false
+    }
+   ],
    "lines": [
     "# Mapping Equity GeoAI",
     "",
+    "\u0001IMG0\u0001",
     "",
     "### Geospatial exploration of how services and risk are distributed across places. Exploratory project.",
     "",

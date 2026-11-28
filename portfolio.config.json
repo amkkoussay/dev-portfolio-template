@@ -185,7 +185,9 @@
       "long": "An exploratory GeoAI project mapping how access and risk are distributed geographically — part of an ongoing exploration of spatial data for public-good questions.",
       "more": true,
       "name": "Mapping Equity GeoAI",
-      "shots": [],
+      "shots": [
+        "shots/mapping-equity-geoai.png"
+      ],
       "stack": [
         "Python",
         "Geospatial"

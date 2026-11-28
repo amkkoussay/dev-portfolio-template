@@ -1,3 +1,7 @@
+## 1.8.1 — 2026-11-28
+
+- Mapping Equity GeoAI gets its first shot: the project's own Zindi submissions record (the Bias Bounty Mapping Equity Challenge page from its in-repo proof PDF). It was the last project with an empty shots viewer, which read as a broken image.
+
 ## 1.8.0 — 2026-11-28
 
 - Case studies grow two fields: every project now documents its `result` (the verifiable outcome) and `what I learned`, rendered in the panel between solution and role — problem → solution → result → learned.
