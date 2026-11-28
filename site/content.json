@@ -1,6 +1,6 @@
 {
  "owner": "amkkoussay",
- "fetchedAt": "2026-11-27T16:24:29.033Z",
+ "fetchedAt": "2026-11-28T14:36:13.585Z",
  "about": {
   "repo": "amkkoussay",
   "lines": [
@@ -49,13 +49,21 @@
    "case": {
     "problem": "AI assistants like Claude and ChatGPT each start with amnesia: nothing one of them learns survives into the next session, and when two agents record different versions of a fact there is no trace of who decided what, or why.",
     "solution": "A shared memory hub with bi-temporal facts (every value keeps its validity window), first-class Decision units that store reasons, evidence and rejected alternatives, and a conflict queue where a challenged fact stays pending until the owner rules. Ships as an MCP server (13 tools) with a live graph viewer and a PyPI package; also deployed on Cloudflare Workers + D1.",
-    "role": "Designed and built solo — core engine, MCP server, viewer, deployment and the release process."
+    "role": "Designed and built solo — core engine, MCP server, viewer, deployment and the release process.",
+    "result": "Live as mirsad-mcp 0.3.0 on PyPI and on Cloudflare Workers + D1; 13 GitHub stars; OpenSSF Best Practices Passing badge; listed on Glama, mcpservers.org and VerifyMCP.",
+    "learned": "A hosted fix is only proven against the host itself — D1 caps LIKE patterns at 50 bytes where stock SQLite allows 50,000, so local tests passed while production failed. And a release counts only when the published package installs clean and its entry point actually runs."
    },
    "images": [
     {
      "file": "shots/mirsad.png",
      "source": "shots/mirsad.png",
      "alt": "Mirsad screenshot 1",
+     "xray": false
+    },
+    {
+     "file": "shots/mirsad-2.png",
+     "source": "shots/mirsad-2.png",
+     "alt": "Mirsad screenshot 2",
      "xray": false
     }
    ],
@@ -73,6 +81,8 @@
     "on Cloudflare Workers + D1, with Claude and ChatGPT connected.",
     "",
     "Built with Python · MCP · SQLite · Cloudflare D1",
+    "",
+    "\u0001IMG1\u0001",
     "",
     "[Visit](https://github.com/amkkoussay/Mersad)"
    ]
@@ -106,7 +116,9 @@
    "case": {
     "problem": "Flood risk in Tunis is published as static maps and reports; a resident cannot ask 'what about my street?' and get an answer they can check.",
     "solution": "Five weighted factors — rainfall 40%, slope 20%, elevation 15%, built-up share 15%, distance to water 10% — computed per map cell from OpenWeather rainfall and Open-Meteo terrain, exactly as documented in the README. The ESA WorldCover land-cover layer is currently unavailable in production and is shown as unavailable, never guessed.",
-    "role": "Solo build — scoring backend, methodology write-up and the Leaflet map frontend."
+    "role": "Solo build — scoring backend, methodology write-up and the Leaflet map frontend.",
+    "result": "Live at rain2risk.vercel.app. The methodology is documented in the repo README with the exact factor weights, so any reading can be reproduced by hand.",
+    "learned": "A screening score has to say what it is not: relative and indicative, never a prediction. If the reader cannot check the method, the number is marketing."
    },
    "images": [
     {
@@ -161,13 +173,21 @@
    "case": {
     "problem": "Plant apps look at one photo and announce a disease with confidence — a guess dressed as a diagnosis, which can push a farmer toward the wrong treatment.",
     "solution": "Crop-first triage: Plant.id suggests the crop, Gemini Vision extracts only the symptom codes actually visible in the photo, and matches are checked against a knowledge base of 18 crops and 184 source-verified disease records. When the evidence is too thin, the app abstains instead of guessing.",
-    "role": "Solo build — curated the verified knowledge base record by record and built the app around the abstention rule."
+    "role": "Solo build — curated the verified knowledge base record by record and built the app around the abstention rule.",
+    "result": "The knowledge base was rebuilt from sources only — 18 crops, 184 disease records — and an automated data check verifies those counts; the live app states the same numbers.",
+    "learned": "Templated data is worse than no data. An earlier base claimed 40 crops and 439 records that nobody could trace to a source, so I scrapped it: if a record has no source, it does not ship."
    },
    "images": [
     {
      "file": "shots/cropguide.png",
      "source": "shots/cropguide.png",
      "alt": "CropGuide screenshot 1",
+     "xray": false
+    },
+    {
+     "file": "shots/cropguide-2.png",
+     "source": "shots/cropguide-2.png",
+     "alt": "CropGuide screenshot 2",
      "xray": false
     }
    ],
@@ -184,6 +204,8 @@
     "crops is traceable to its source.",
     "",
     "Built with JavaScript · Plant.id · Gemini Vision · SQLite",
+    "",
+    "\u0001IMG1\u0001",
     "",
     "[Visit](https://github.com/amkkoussay/cropguide-ai)"
    ]
@@ -217,7 +239,9 @@
    "case": {
     "problem": "A small clinic runs patients, appointments and records across paper files and chat threads; nothing is searchable and reminders depend on memory.",
     "solution": "A clinic management platform: patients, appointments, medical records and billing with role-based access (admin, doctor, receptionist, patient), a FHIR-shaped REST API, an AI assistant whose tools are scoped to the caller's role, and n8n webhooks that fire booking confirmations and cancellations.",
-    "role": "Solo build — Flask/SQLite platform, role-scoped chatbot tools and the n8n event integration, tested end-to-end live."
+    "role": "Solo build — Flask/SQLite platform, role-scoped chatbot tools and the n8n event integration, tested end-to-end live.",
+    "result": "Live demo on Vercel with the repo suite green (87 tests). A real n8n workflow fired booking and cancellation emails end-to-end — verified delivered in the inbox, not just sent.",
+    "learned": "An accepted send is not a delivered message; an integration is proven at the far end. And a serverless demo resets its database, so a demo URL is never a production URL."
    },
    "images": [
     {
@@ -225,6 +249,21 @@
      "source": "shots/clinique.png",
      "alt": "Clinique screenshot 1",
      "xray": false
+    },
+    {
+     "file": "shots/clinique-2.png",
+     "source": "shots/clinique-2.png",
+     "alt": "Clinique screenshot 2",
+     "xray": false
+    },
+    {
+     "file": "shots/clinique-poster.png",
+     "source": "shots/clinique-poster.png",
+     "alt": "Clinique demo film",
+     "xray": false,
+     "kind": "film",
+     "video": "shots/clinique-demo.mp4",
+     "duration": 13
     }
    ],
    "lines": [
@@ -241,6 +280,10 @@
     "deliveries.",
     "",
     "Built with Flask · SQLite · Qwen · FHIR · n8n",
+    "",
+    "\u0001IMG1\u0001",
+    "",
+    "\u0001IMG2\u0001",
     "",
     "[Visit](https://clinique-six.vercel.app)"
    ]
@@ -271,7 +314,9 @@
    "case": {
     "problem": "Symptom checkers rush to name a disease; for an Arabic speaker the options are worse — translated lists with no sense of urgency or safety.",
     "solution": "An Arabic-first health explainer (Nabd) that organizes what the user feels, explains what it may mean and what step comes next, puts safety signals first, and never claims a diagnosis.",
-    "role": "Solo build — exploratory project; content structure and the safety-first interaction."
+    "role": "Solo build — exploratory project; content structure and the safety-first interaction.",
+    "result": "The safety layer is executable, not prose: its check script passes, and the emergency phrasings registered in the data file — in English and Arabic — route to escalation advice before anything else.",
+    "learned": "'No warning found' must never read as 'you are fine'. The absence of a red flag is not reassurance, and the interface has to say that out loud."
    },
    "images": [
     {
@@ -324,7 +369,9 @@
    "case": {
     "problem": "Unequal access to public services is easy to assert and hard to show; without spatial evidence it stays an opinion.",
     "solution": "A geospatial analysis of service coverage shipped as a full documentation package — evidence register, methodology, data lineage and a validation report — so every claim in it can be re-checked.",
-    "role": "Solo research and build — exploratory / proof of concept."
+    "role": "Solo research and build — exploratory / proof of concept.",
+    "result": "Shipped as a complete competition package: inventory, provenance register, validation report and claims register — and the Zindi submissions proof PDF sits in the repo, hash-matched to the package manifest.",
+    "learned": "A figure you cannot point to evidence for is a claim, not a result. Every number in the package names the file it came from."
    },
    "images": [],
    "lines": [
@@ -368,7 +415,9 @@
    "case": {
     "problem": "A small bakery tracks stock, purchasing and profit in notebooks; reordering is guesswork and losses surface weeks late.",
     "solution": "BakeryERP: inventory and purchasing with predictive reorder suggestions, profitability analytics, PDF/Excel exports and role-based access (admin, manager, cashier, customer); demo accounts are only ever seeded with explicit passwords, never defaults.",
-    "role": "Solo build — Flask ERP with database migrations and a test suite."
+    "role": "Solo build — Flask ERP with database migrations and a test suite.",
+    "result": "Verified by running: seeded demo, login, then the staff dashboard and reports return 200. Both pages were missing templates that made the dashboard fail with a 500 right after login; they were rebuilt in the app's own style, and an MIT license was added.",
+    "learned": "Test past the login, not up to it — a successful sign-in that lands on a 500 is a broken product wearing a working costume."
    },
    "images": [
     {
@@ -421,7 +470,9 @@
    "case": {
     "problem": "A bakery runs sales, stock and production on paper and scattered sheets; nothing connects what was sold to what must be baked or bought.",
     "solution": "One operations system: point of sale, inventory driven by bills of materials, production and purchasing orders, online orders, and reports for profitability, waste and inventory prediction.",
-    "role": "Solo design and build — Flask blueprints, service/repository modules, SQL schema and migrations."
+    "role": "Solo design and build — Flask blueprints, service/repository modules, SQL schema and migrations.",
+    "result": "A security sweep found a seeded default admin whose password was printed in the schema and the Arabic README; the seed is removed, the claim corrected in both READMEs, and a cleanup script ships for databases created from the old schema.",
+    "learned": "Documentation can leak what code hides. A claim like 'no default password' has to be diffed against the schema and every README language — never believed."
    },
    "images": [
     {

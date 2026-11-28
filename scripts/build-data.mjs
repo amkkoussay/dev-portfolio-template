@@ -234,12 +234,19 @@ const projects = CONFIG.projects.map((p) => {
   if (p.more) MORE.push(id);
   const full = p.githubRepo || (p.url?.startsWith("https://github.com/") ? p.url.replace("https://github.com/", "").replace(/\/$/, "") : null);
   const facts = repoFacts(full);
-  const images = (p.shots || []).map((s, i) => ({
-    file: s.startsWith("shots/") ? s : `shots/${path.basename(s)}`,
-    source: s,
-    alt: `${p.name} screenshot ${i + 1}`,
-    xray: false,
-  }));
+  const images = (p.shots || []).map((s, i) => {
+    if (s && typeof s === "object") {
+      const poster = s.poster.startsWith("shots/") ? s.poster : `shots/${path.basename(s.poster)}`;
+      const video = s.film.startsWith("shots/") ? s.film : `shots/${path.basename(s.film)}`;
+      return { file: poster, source: s.poster, alt: `${p.name} demo film`, xray: false, kind: "film", video, duration: s.duration || 0 };
+    }
+    return {
+      file: s.startsWith("shots/") ? s : `shots/${path.basename(s)}`,
+      source: s,
+      alt: `${p.name} screenshot ${i + 1}`,
+      xray: false,
+    };
+  });
   const lines = [
     `# ${p.title || p.name}`,
     "",

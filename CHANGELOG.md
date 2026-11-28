@@ -1,3 +1,10 @@
+## 1.8.0 — 2026-11-28
+
+- Case studies grow two fields: every project now documents its `result` (the verifiable outcome) and `what I learned`, rendered in the panel between solution and role — problem → solution → result → learned.
+- The wheel explains itself: the hint now reads "scroll · drag · click a project to open it" in a visible pill, with a keys line under it (j / k move · enter opens · esc back).
+- More media per project: second screenshots for Mirsad (a decision's story panel), Clinique (the patients register) and CropGuide (the home page); Clinique's dashboard shot recaptured after the MediCare → Clinique rename; the shot frame now matches the screenshots' 16/10 ratio so they render larger.
+- Demo films: the project viewer now supports film shots (poster + mp4, played in place); Clinique ships a 13-second film of the real flow — login, dashboard, patients, appointments, AI assistant.
+
 ## 1.7.2 — 2026-11-27
 
 - The intro exit animation is back in full: the anti-stall fallback added in 1.7.1 fired at 900 ms and cut the leave sequence (lid, character morph, zoom) short. The fallback is now 4.5 s — safely beyond the animation's own ~3.4 s — so it only ever rescues a genuinely stalled tab.

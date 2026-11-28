@@ -312,6 +312,8 @@ function caseLines(project) {
   };
   if (c.problem) field("problem", c.problem);
   if (c.solution) field("solution", c.solution);
+  if (c.result) field("result", c.result);
+  if (c.learned) field("what I learned", c.learned);
   if (c.role) field("my role", c.role);
   if ((project.stack || []).length) out.push({ segments: [[pad("tech"), "t-key"], [project.stack.join(" · "), "md-code"]] });
   if (project.url && project.url !== project.github) out.push({ segments: [[pad("live"), "t-key"], [project.url.replace(/^https:\/\//, ""), "md-code"]] });

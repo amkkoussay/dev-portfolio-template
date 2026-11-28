@@ -337,8 +337,10 @@ export function createWheel(host, { items, days, palettes = [], stack = null, wo
   list.setAttribute("aria-label", host.getAttribute("aria-label") || "Projects");
   const mark = make("span", "wheel-mark");
   mark.setAttribute("aria-hidden", "true");
-  const hint = make("p", "wheel-hint", "scroll · drag the wheel");
+  const hint = make("p", "wheel-hint", "scroll · drag · click a project to open it");
   hint.setAttribute("aria-hidden", "true");
+  const keys = make("p", "wheel-keys", "keys — j / k move · enter opens · esc back");
+  keys.setAttribute("aria-hidden", "true");
   const nodes = items.map((item, k) => {
     const li = make("li");
     li.setAttribute("role", "none");
@@ -360,7 +362,7 @@ export function createWheel(host, { items, days, palettes = [], stack = null, wo
     list.append(li);
     return { button, img };
   });
-  host.replaceChildren(layer, list, mark, hint);
+  host.replaceChildren(layer, list, mark, hint, keys);
 
   let W = 0;
   let H = 0;
